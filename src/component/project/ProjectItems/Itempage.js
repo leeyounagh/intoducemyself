@@ -22,7 +22,7 @@ const projectdesc = [
 ];
 const ItemPage = (props) => {
   const [play, setPlay] = useState(false);
-  const [start, setStart] = useState(10);
+  const [start, setStart] = useState(0);
   const [end, setEnd] = useState(10);
   useEffect(() => {
     setPlay(false);
