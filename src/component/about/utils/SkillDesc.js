@@ -8,7 +8,7 @@ const SkillDesc = () => {
       <SkillInnerText>
         2022.02월 생활코딩 유튜브를 본후 프로그래밍에 흥미가 생겨 독학으로
         공부를 시작하였고, 2022.11월말 엘리스코딩에서 공부를 시작하며 더욱더
-        프로그래밍이 좋아 졌습니다. 이제 코딩은 제 인생의 원동력이 되었습니다.
+        프로그래밍이 좋아 졌습니다. 이제 코딩은 제 삶의 원동력이 되었습니다.
       </SkillInnerText>
       <SkillTitleDiv>Skills</SkillTitleDiv>
       <SkillInnerText>Html,javascript,Css,React,MongoDb,nodeJs</SkillInnerText>
