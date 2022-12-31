@@ -9,12 +9,20 @@ const Sidebar = () => {
   return (
     <SidebarContainer>
       <IconDiv>
-        <SidbarAtag target="_blank" href="https://velog.io/@dudgk0216">
+        <SidbarAtag
+          target="_blank"
+          href="https://velog.io/@dudgk0216"
+          rel="noreferrer noopener"
+        >
           <FaBloggerB size="50" />
         </SidbarAtag>
       </IconDiv>
       <IconDiv>
-        <SidbarAtag target="_blank" href="https://github.com/leeyounagh">
+        <SidbarAtag
+          target="_blank"
+          href="https://github.com/leeyounagh"
+          rel="noreferrer noopener"
+        >
           <BsGithub size="50" />
         </SidbarAtag>
       </IconDiv>
@@ -22,6 +30,7 @@ const Sidebar = () => {
         <SidbarAtag
           target="_blank"
           href="https://www.instagram.com/dlduddkdla/"
+          rel="noreferrer noopener"
         >
           <AiFillInstagram size="50" />
         </SidbarAtag>
@@ -30,6 +39,7 @@ const Sidebar = () => {
         <SidbarAtag
           target="_blank"
           href="https://www.youtube.com/channel/UCQH2wAqmaRE7HdUpdULYJjg"
+          rel="noreferrer noopener"
         >
           <BsYoutube size="50" />
         </SidbarAtag>
@@ -51,9 +61,9 @@ const SidbarAtag = styled.a`
   color: black;
 `;
 const IconDiv = styled.div`
-  animation: transfom 2000ms linear alternate;
+  animation: transform 2000ms linear alternate;
 
-  @keyframes transfom {
+  @keyframes transform {
     0% {
       transform: scale(0);
     }
