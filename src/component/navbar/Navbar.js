@@ -22,7 +22,7 @@ const Navbar = () => {
   );
 };
 
-const NavbarContainer = styled.div`
+const NavbarContainer = styled.nav`
   width: 100vw;
   height: 10vh;
   padding-top: 30px;
