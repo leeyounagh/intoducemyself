@@ -4,7 +4,7 @@ import styled from "styled-components";
 import navbarItems from "./navbarData";
 const Navbar = () => {
   return (
-    <header>
+    <Header>
       <NavbarContainer>
         <MenuContainer>
           {navbarItems.map((item) => {
@@ -18,11 +18,12 @@ const Navbar = () => {
           })}
         </MenuContainer>
       </NavbarContainer>
-    </header>
+    </Header>
   );
 };
+const Header = styled.header``;
 
-const NavbarContainer = styled.div`
+const NavbarContainer = styled.nav`
   width: 100vw;
   height: 10vh;
   padding-top: 30px;

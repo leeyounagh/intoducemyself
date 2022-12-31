@@ -34,16 +34,12 @@ const Project = () => {
 
           <PageButtonDiv>
             <PageButton onClick={(e) => PageHandler(e)}>
-              <GrPrevious
-                id="previous"
-                size="50"
-                style={{ opacity: "0.5" }}
-              ></GrPrevious>
+              <GrPrevious id="previous" size="50"></GrPrevious>
             </PageButton>
 
             {/* 이전버튼 */}
             <PageButton onClick={(e) => PageHandler(e)}>
-              <GrNext id="next" size="50" style={{ opacity: "0.5" }}></GrNext>
+              <GrNext id="next" size="50"></GrNext>
             </PageButton>
 
             {/* 이후버튼 */}
@@ -86,10 +82,12 @@ const PageButtonDiv = styled.div`
 const PageButton = styled.button`
   height: 100%;
   border: 0;
+  opacity: 0.5;
   background-color: transparent;
   cursor: pointer;
   &: hover {
     transform: scale(1.2);
+    opacity: 1.4;
   }
 `;
 export default Project;
