@@ -5,7 +5,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-cards";
 
-import "./swiperStyles.scss";
 // import required modules
 import { EffectCards } from "swiper";
 import SwiperCore, { Navigation } from "swiper";
@@ -63,6 +62,7 @@ const Cardswiper = () => {
                   style={{
                     backgroundImage: `url(${item.src})`,
                     backgroundSize: "cover",
+                    borderRadius: "18px",
                   }}
                 >
                   {item.name}
@@ -80,6 +80,21 @@ const StyledSwiper = styled(Swiper)`
   height: 70vh;
   display: flex;
   justify-content: center;
+  border-radius: 18px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  &:nth-child(1n) {
+  }
+  &:nth-child(2n) {
+  }
+  &:nth-child(3n) {
+  }
+  &:nth-child(4n) {
+  }
+  &:nth-child(5n) {
+  }
 `;
 
 const CardDiv = styled.div`
