@@ -9,82 +9,61 @@ import "swiper/css/effect-cards";
 import { EffectCards } from "swiper";
 import SwiperCore, { Navigation } from "swiper";
 
-const Card = [
-  {
-    id: 0,
-    name: "자기소개",
-    src: "테스트1.jpg",
-    desc: "이름:이수연 \n 전공:관광학과 \n Mbti:ESFP \n ",
-  },
-  {
-    id: 1,
-    name: "장점",
-    src: "테스트2.jpg",
-    desc: "이름:이수연 \n 전공:관광학과 \n Mbti:ESFP \n ",
-  },
-  {
-    id: 2,
-    name: "단점",
-    src: "테스트1.jpg",
-    desc: "이름:이수연 \n 전공:관광학과 \n Mbti:ESFP \n ",
-  },
-  {
-    id: 3,
-    name: "좋아하는것",
-    src: "테스트2.jpg",
-    desc: "이름:이수연 \n 전공:관광학과 \n Mbti:ESFP \n ",
-  },
-  {
-    id: 4,
-    name: "싫어하는것",
-    src: "테스트1.jpg",
-    desc: "이름:이수연 \n 전공:관광학과 \n Mbti:ESFP \n ",
-  },
-];
+import Card from "./CardData";
 
 const Cardswiper = () => {
   SwiperCore.use([Navigation]);
 
   return (
     <CardSwiperContainer>
-      <StyledSwiper
-        effect={"cards"}
-        grabCursor={true}
-        modules={[EffectCards]}
-        onSwiper={(swiper) => console.log(swiper)}
-      >
+      <StyledSwiper effect={"cards"} grabCursor={true} modules={[EffectCards]}>
         {Card.map((item, index) => {
           return (
-            <div>
-              <CardDiv>
-                <SwiperSlide
-                  key={item.id}
-                  style={{
-                    backgroundImage: `url(${item.src})`,
-                    backgroundSize: "cover",
-                    borderRadius: "18px",
-                  }}
-                >
-                  {item.name}
-                </SwiperSlide>
-              </CardDiv>
-            </div>
+            <CardDiv>
+              <SwiperSlide
+                key={item.id}
+                style={{
+                  backgroundImage: `url(${item.src})`,
+                  backgroundSize: "cover",
+                  borderRadius: "18px",
+                }}
+              >
+                <SwiperTitle>{item.name}</SwiperTitle>
+                <SwiperDesc>{item.desc}</SwiperDesc>
+                <SwiperDesc>{item.desc1}</SwiperDesc>
+                <SwiperDesc>{item.desc2}</SwiperDesc>
+              </SwiperSlide>
+            </CardDiv>
           );
         })}
       </StyledSwiper>
     </CardSwiperContainer>
   );
 };
-const StyledSwiper = styled(Swiper)`
-  width: 30vw;
-  height: 70vh;
+const SwiperTitle = styled.div`
+  font-size: 40px;
+  width: 100%;
+  height: 80%;
   display: flex;
   justify-content: center;
+  align-items: flex-end;
+  z-index: 1;
+  margin-bottom: 20px;
+`;
+const SwiperDesc = styled.div``;
+const StyledSwiper = styled(Swiper)`
+  width: 560px;
+  height: 720px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 18px;
   font-size: 22px;
   font-weight: bold;
-  color: #fff;
+  color: black;
   text-align: center;
+  z-index: 0;
+
   &:nth-child(1n) {
   }
   &:nth-child(2n) {
@@ -97,13 +76,7 @@ const StyledSwiper = styled(Swiper)`
   }
 `;
 
-const CardDiv = styled.div`
-  border-radius: 18px;
-  font-size: 22px;
-  font-weight: bold;
-  color: #fff;
-  position: relative;
-`;
+const CardDiv = styled.div``;
 
 const CardSwiperContainer = styled.div`
   width: 100%;
