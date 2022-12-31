@@ -84,14 +84,7 @@ const CardSwiperContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(255, 247, 255);
   position: relative;
 `;
 
-const DescDiv = styled.div`
-  width: 400px;
-  height: 420px;
-  // border: 1px solid black;
-  // margin-left: 100px;
-`;
 export default Cardswiper;

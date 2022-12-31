@@ -1,7 +1,8 @@
 import React from "react";
-import styled from "styled-components";
+import ParticlesComponent from "./utils/ParticlesComponent";
 import Chart from "./utils/Chart";
 import Cardswiper from "./Cardswiper";
+import styled from "styled-components";
 
 const About = () => {
   return (
@@ -12,6 +13,7 @@ const About = () => {
       <AboutSection>
         <Cardswiper />
       </AboutSection>
+      <ParticlesComponent />
     </>
   );
 };
