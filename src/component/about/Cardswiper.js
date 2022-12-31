@@ -1,5 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/effect-cards";
+
+import "./swiperStyles.scss";
+// import required modules
+import { EffectCards } from "swiper";
 
 const Card = [
   { id: 1, name: "자기소개", src: "테스트1.jpg" },
@@ -12,11 +20,42 @@ const Card = [
 const Cardswiper = () => {
   return (
     <CardSwiperContainer>
-      <CardDiv />
+      {/* <CardDiv /> */}
+
+      <Swiper
+        effect={"cards"}
+        grabCursor={true}
+        modules={[EffectCards]}
+        className="mySwiper"
+      >
+        <CardDiv>
+          <SwiperSlide>Slide 1</SwiperSlide>
+        </CardDiv>
+        <CardDiv>
+          <SwiperSlide>Slide 2</SwiperSlide>
+        </CardDiv>
+        <CardDiv>
+          <SwiperSlide>Slide 3</SwiperSlide>
+        </CardDiv>
+        <CardDiv>
+          <SwiperSlide>Slide 4</SwiperSlide>
+        </CardDiv>
+        <CardDiv>
+          <SwiperSlide>Slide 5</SwiperSlide>
+        </CardDiv>
+      </Swiper>
+
       <DescDiv />
     </CardSwiperContainer>
   );
 };
+
+const CardDiv = styled.div`
+  border-radius: 18px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+`;
 
 const CardSwiperContainer = styled.div`
   width: 100%;
@@ -25,20 +64,7 @@ const CardSwiperContainer = styled.div`
   justify-content: center;
   align-items: center;
   background-color: rgb(255, 247, 255);
-`;
-
-const CardDiv = styled.div`
-  width: 360px;
-  height: 540px;
-  border-radius: 10px;
-  box-shadow: 5px 5px 26px 5px gray;
-  /* offset-x | offset-y | blur-radius | spread-radius | color */
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: none;
-  touch-action: none;
-  user-select: none;
-  margin-right: 100px;
+  position: relative;
 `;
 
 const DescDiv = styled.div`
