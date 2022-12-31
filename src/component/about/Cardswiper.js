@@ -37,7 +37,7 @@ const CardDiv = styled.div`
   background-repeat: no-repeat;
   background-position: none;
   touch-action: none;
-  uer-select: none;
+  user-select: none;
   margin-right: 100px;
 `;
 

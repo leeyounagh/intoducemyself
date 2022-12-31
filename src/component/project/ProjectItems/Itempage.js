@@ -27,6 +27,7 @@ const ItemPage = (props) => {
   useEffect(() => {
     setPlay(false);
   }, [props.page]);
+
   const handlePlay = () => {
     setPlay(!play);
   };
@@ -98,7 +99,7 @@ const ItemPage = (props) => {
 
   return (
     <VideoDiv>
-      <PageRenderer></PageRenderer>
+      <PageRenderer />
     </VideoDiv>
   );
 };
@@ -132,7 +133,7 @@ const VideoIconContainer = styled.div`
 const DescDiv = styled.div``;
 const DescTitle = styled.div`
   font-family: "양진체";
-  src: url("https://cdn.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff")
+  src: url("https://cdn.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff");
     format("woff");
   font-weight: normal;
   font-style: normal;
@@ -143,7 +144,7 @@ const PlayButton = styled.button`
   border: 0;
   background-color: transparent;
   cursor: pointer;
-  &: hover {
+  &:hover {
     transform: scale(1.2);
   }
 `;
