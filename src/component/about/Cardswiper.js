@@ -9,7 +9,7 @@ import "swiper/css/effect-cards";
 import { EffectCards } from "swiper";
 import SwiperCore, { Navigation } from "swiper";
 
-import Card from "./CardData";
+import Card from "./Data/CardData";
 
 const Cardswiper = () => {
   SwiperCore.use([Navigation]);
