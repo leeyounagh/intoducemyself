@@ -1,4 +1,5 @@
-이수연의 포트폴리오 입니다.
+git lab 용량 초과로 인하여 업로드없이 개인적으로 작업을하다가 중간에 업로드하여
+중간과정 commit이 없는점 양해부탁드립니다.
 
 # Getting Started with Create React App
 

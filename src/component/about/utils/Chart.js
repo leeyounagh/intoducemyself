@@ -50,5 +50,6 @@ const ChartContainer = styled.div`
   margin-right: 50px;
   display: flex;
   justify-content: center;
+  background-color: rgb(252, 246, 244);
 `;
 export default Chart;

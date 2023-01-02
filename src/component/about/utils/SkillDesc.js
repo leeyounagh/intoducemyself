@@ -1,19 +1,23 @@
 import React from "react";
 import styled from "styled-components";
+import AboutDescData from "./AboutDescData";
 
 const SkillDesc = () => {
   return (
     <SkillDescContainer>
       <SkillTitleDiv>Front-Engineer가 되기 위하여..</SkillTitleDiv>
-      <SkillInnerText>
-        2022.02월 생활코딩 유튜브를 본후 프로그래밍에 흥미가 생겨 독학으로
-        공부를 시작하였고, 2022.11월말 엘리스코딩에서 공부를 시작하며 더욱더
-        프로그래밍이 좋아 졌습니다. 이제 코딩은 제 삶의 원동력이 되었습니다.
-      </SkillInnerText>
+      {AboutDescData.map((item) => {
+        return (
+          <>
+            <SkillInnerText>
+              {item.date} {item.desc}
+            </SkillInnerText>
+          </>
+        );
+      })}
+
       <SkillTitleDiv>Skills</SkillTitleDiv>
       <SkillInnerText>Html,javascript,Css,React,MongoDb,nodeJs</SkillInnerText>
-      <SkillTitleDiv>Tools</SkillTitleDiv>
-      <SkillInnerText>VScode, Github etc..</SkillInnerText>
     </SkillDescContainer>
   );
 };
@@ -26,6 +30,7 @@ const SkillDescContainer = styled.div`
   border: 2px solid black;
   display: grid;
   place-items: start center;
+  background-color: rgb(252, 246, 244);
   &:hover {
     background-color: black;
     color: white;
