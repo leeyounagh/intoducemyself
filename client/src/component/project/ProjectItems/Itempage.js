@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { TbPlayerPlay } from "react-icons/tb";
 import { TbPlayerSkipBack } from "react-icons/tb";
 import { TbPlayerSkipForward } from "react-icons/tb";
+import projectDesc from "./projectDesc";
 
 const videoSrc = [
   {
@@ -16,10 +17,7 @@ const videoSrc = [
     title: "Hello Jeju",
   },
 ];
-const projectdesc = [
-  { id: 2, title: "Vintage", desc: "" },
-  { id: 4, title: "Hello Jeju", desc: "" },
-];
+
 const ItemPage = (props) => {
   const [play, setPlay] = useState(false);
   const [start, setStart] = useState(0);
@@ -86,11 +84,22 @@ const ItemPage = (props) => {
         </>
       );
     } else if (props.page === 2 || props.page === 4) {
-      let data = projectdesc.filter((item) => item.id === props.page);
+      let data = projectDesc.filter((item) => item.id === props.page);
       return (
         <>
-          <DescDiv>
-            <DescTitle>{data[0].title}</DescTitle>
+          <DescDiv id={props.page}>
+            <DescTitle id={props.page}>{data[0].title}</DescTitle>
+
+            <DescText>{data[0].desc1}</DescText>
+            <DescText>{data[0].word}</DescText>
+            <DescText>{data[0].desc2}</DescText>
+            <DescText>{data[0].desc3}</DescText>
+            <DescText>{data[0].desc4}</DescText>
+            <AtagDiv>
+              <a href={data[0].git} target="_blank" rel="noreferrer noopener">
+                깃허브로 이동💕
+              </a>
+            </AtagDiv>
           </DescDiv>
         </>
       );
@@ -109,6 +118,7 @@ const VideoDiv = styled.div`
   height: 60vh;
   display: grid;
   place-items: start center;
+  position: relative;
 `;
 const Iframe = styled.iframe``;
 const VideoPageTitle = styled.div`
@@ -130,15 +140,32 @@ const VideoIconContainer = styled.div`
   display: flex;
   justify-content: space-between;
 `;
-const DescDiv = styled.div``;
-const DescTitle = styled.div`
+const DescDiv = styled.div`
+  width: 40vw;
+  height: 40vh;
+  position: absolute;
+  top: 10%;
   font-family: "양진체";
   src: url("https://cdn.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff")
     format("woff");
   font-weight: normal;
   font-style: normal;
+  color: ${(props) => (props.id === 4 ? "white" : "black")};
+
+  a {
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    color: ${(props) => (props.id === 4 ? "white" : "black")};
+  }
+`;
+const DescTitle = styled.div`
   font-size: 40px;
   color: black;
+  text-align: center;
+  margin-bottom: 50px;
+  margin-top: 20px;
+  color: ${(props) => (props.id === 4 ? "white" : "black")};
 `;
 const PlayButton = styled.button`
   border: 0;
@@ -147,5 +174,14 @@ const PlayButton = styled.button`
   &:hover {
     transform: scale(1.2);
   }
+`;
+const DescText = styled.div`
+  text-align: center;
+  font-size: 20px;
+  font-weight: 100;
+`;
+const AtagDiv = styled.div`
+  margin-top: 20px;
+  text-align: center;
 `;
 export default ItemPage;

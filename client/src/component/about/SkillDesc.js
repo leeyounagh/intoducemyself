@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import AboutDescData from "../Data/AboutDescData";
+import AboutDescData from "./Data/AboutDescData";
 
 const SkillDesc = () => {
   return (

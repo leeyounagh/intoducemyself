@@ -2,7 +2,7 @@ import React from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
 import styled from "styled-components";
-import SkillDesc from "./SkillDesc";
+import SkillDesc from "../SkillDesc";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
