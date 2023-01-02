@@ -10,7 +10,7 @@ const Navbar = () => {
             return (
               <>
                 <MenuItemStyle>
-                  <navbarAtag href={item.link}>{item.title}</navbarAtag>
+                  <a href={item.link}>{item.title}</a>
                 </MenuItemStyle>
               </>
             );
@@ -21,12 +21,12 @@ const Navbar = () => {
   );
 };
 const Header = styled.header``;
-const navbarAtag = styled.a``;
+
 const NavbarContainer = styled.nav`
   width: 100vw;
   height: 10vh;
   padding-top: 30px;
-
+  z-index: 5;
   display: flex;
   justify-content: center;
 `;

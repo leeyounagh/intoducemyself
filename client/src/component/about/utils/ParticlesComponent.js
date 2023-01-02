@@ -46,7 +46,7 @@ const ParticlesComponent = (props) => {
         },
         move: {
           enable: true, // enabling this will make particles move in the canvas
-          speed: { min: 1, max: 7 }, // using a range in speed value will make particles move in a random speed between min/max values, each particles have its own value, it won't change in time by default
+          speed: { min: 1, max: 5 }, // using a range in speed value will make particles move in a random speed between min/max values, each particles have its own value, it won't change in time by default
         },
         opacity: {
           value: { min: 0.3, max: 0.7 }, // using a different opacity, to have some semitransparent effects
