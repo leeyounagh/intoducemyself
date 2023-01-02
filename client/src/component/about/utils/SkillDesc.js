@@ -37,7 +37,7 @@ const SkillDescContainer = styled.div`
   }
 `;
 const SkillTitleDiv = styled.div`
-  font-size: 30px;
+  font-size: 2rem;
   margin-top: 15px;
 `;
 const SkillInnerText = styled.div`
