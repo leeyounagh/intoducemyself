@@ -28,10 +28,12 @@ const Cardswiper = () => {
                   borderRadius: "18px",
                 }}
               >
-                <SwiperTitle>{item.name}</SwiperTitle>
-                <SwiperDesc>{item.desc}</SwiperDesc>
-                <SwiperDesc>{item.desc1}</SwiperDesc>
-                <SwiperDesc>{item.desc2}</SwiperDesc>
+                <CardLetterBox>
+                  <SwiperTitle>{item.name}</SwiperTitle>
+                  <SwiperDesc>{item.desc}</SwiperDesc>
+                  <SwiperDesc>{item.desc1}</SwiperDesc>
+                  <SwiperDesc>{item.desc2}</SwiperDesc>
+                </CardLetterBox>
               </SwiperSlide>
             </CardDiv>
           );
@@ -40,6 +42,14 @@ const Cardswiper = () => {
     </CardSwiperContainer>
   );
 };
+const CardLetterBox = styled.div`
+  position: absolute;
+  top: 75%;
+  left: 25%;
+  width: 50%;
+  background-color: rgb(252, 246, 244);
+  border-radius: 20px;
+`;
 const SwiperTitle = styled.div`
   font-size: 40px;
   width: 100%;
@@ -58,7 +68,7 @@ const StyledSwiper = styled(Swiper)`
   justify-content: center;
   align-items: center;
   border-radius: 18px;
-  font-size: 22px;
+  font-size: 26px;
   font-weight: bold;
   color: black;
   text-align: center;
@@ -76,7 +86,9 @@ const StyledSwiper = styled(Swiper)`
   }
 `;
 
-const CardDiv = styled.div``;
+const CardDiv = styled.div`
+  position: relative;
+`;
 
 const CardSwiperContainer = styled.div`
   width: 100%;
