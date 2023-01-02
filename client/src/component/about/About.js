@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ParticlesComponent from "./utils/ParticlesComponent";
 import Chart from "./utils/Chart";
 import Cardswiper from "./Cardswiper";
@@ -6,8 +6,12 @@ import Recommendation from "./Recommendation";
 import styled from "styled-components";
 
 const About = () => {
+  useEffect(() => {
+    <ParticlesComponent />;
+  }, []);
   return (
     <>
+      <ParticlesComponent />
       <AboutSection>
         <Chart />
       </AboutSection>
@@ -17,7 +21,6 @@ const About = () => {
       <AboutSection>
         <Recommendation />
       </AboutSection>
-      <ParticlesComponent />
     </>
   );
 };

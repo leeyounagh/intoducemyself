@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 import navbarItems from "./navbarData";
 const Navbar = () => {
@@ -11,7 +10,7 @@ const Navbar = () => {
             return (
               <>
                 <MenuItemStyle>
-                  <Link to={item.link}>{item.title}</Link>
+                  <navbarAtag href={item.link}>{item.title}</navbarAtag>
                 </MenuItemStyle>
               </>
             );
@@ -22,7 +21,7 @@ const Navbar = () => {
   );
 };
 const Header = styled.header``;
-
+const navbarAtag = styled.a``;
 const NavbarContainer = styled.nav`
   width: 100vw;
   height: 10vh;
