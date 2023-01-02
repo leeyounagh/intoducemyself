@@ -24,12 +24,11 @@ const SkillDesc = () => {
 
 const SkillDescContainer = styled.div`
   padding: 30px;
-  width: 27vw;
-  height: 50vh;
+  width: 100%;
+  height: 90%;
   margin-left: 100px;
   border: 2px solid black;
-  display: grid;
-  place-items: start center;
+  text-align: center;
   background-color: rgb(252, 246, 244);
   &:hover {
     background-color: black;

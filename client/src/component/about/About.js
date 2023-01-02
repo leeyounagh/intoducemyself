@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import ParticlesComponent from "./utils/ParticlesComponent";
 import Chart from "./utils/Chart";
 import Cardswiper from "./Cardswiper";
-import Recommendation from "./Recommendation";
+import Mbti from "./Mbti";
 import styled from "styled-components";
 
 const About = () => {
@@ -19,7 +19,7 @@ const About = () => {
         <Cardswiper />
       </AboutSection>
       <AboutSection>
-        <Recommendation />
+        <Mbti />
       </AboutSection>
     </>
   );

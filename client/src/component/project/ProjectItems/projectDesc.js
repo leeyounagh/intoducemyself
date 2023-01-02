@@ -24,7 +24,7 @@ const projectDesc = [
       " 여행계획을 함께 세워보고, 여행지를 관광지,숙박업소,맛집,쇼핑지로 정리해서 볼수 있고,추천도 해주며 찜기능으로 가고싶은곳을 찜해둘수도 있습니다.",
     desc4:
       "또한, Hellojeju 유저간 소통 하고, 관광지를 추천할수 있는 커뮤니티 서비스도 제공하고 있습니다. 엘리스코딩에서 공부하며 부족한점이 많은점을 인지하고 현재 리팩토링중입니다.",
-    git: " href='https://github.com/leeyounagh/Newhellojeju",
+    git: "'https://github.com/leeyounagh/Newhellojeju",
   },
 ];
 
