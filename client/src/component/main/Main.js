@@ -91,7 +91,7 @@ const MainCdImg = styled.img`
   z-index: 5;
   position: absolute;
   left: 50%;
-  top: 130px;
+  top: 150px;
 
   animation: rotate_image 6s linear infinite;
   transform-origin: 50% 50%;
@@ -106,7 +106,7 @@ const MainBeforeCdImg = styled.img`
   z-index: 5;
   position: absolute;
   left: 40%;
-  top: 130px;
+  top: 150px;
 
   animation: translate_image 3s ease-in;
   transform-origin: 50% 50%;
