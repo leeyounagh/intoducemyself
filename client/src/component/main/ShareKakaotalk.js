@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { RiKakaoTalkFill } from "react-icons/ri";
 import styled from "styled-components";
 
@@ -20,7 +20,7 @@ const ShareKakaotalk = () => {
         content: {
           title: "suyoen playlist",
           description: "이수연의 포트폴리오입니다.",
-          imageUrl: "카톡썸네일.PNG", // i.e. process.env.FETCH_URL + '/logo.png'
+          imageUrl: "카톡썸네일.png", // i.e. process.env.FETCH_URL + '/logo.png'
           link: {
             mobileWebUrl: "https://glittery-gumdrop-57389e.netlify.app",
             webUrl: "https://glittery-gumdrop-57389e.netlify.app",
@@ -59,6 +59,6 @@ const Button = styled.button`
   border: none;
   z-index: 10;
   cursor: pointer;
-  background-color: rgb(252, 246, 244);N
+  background-color: rgb(252, 246, 244);
 `;
 export default ShareKakaotalk;

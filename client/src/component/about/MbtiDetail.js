@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import MbtiData from "./Data/MbtiData";
 import ParticlesComponent from "./utils/ParticlesComponent";
-
 const MbtiDetail = (props) => {
   const { id } = useParams();
   const result = MbtiData.filter((item) => id === item.id.toLowerCase());

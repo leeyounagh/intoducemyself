@@ -33,21 +33,13 @@ const Project = () => {
           <ItemPage page={pageCount} />
 
           <PageButtonDiv>
-            <PageButton>
-              <GrPrevious
-                onClick={(e) => PageHandler(e)}
-                id="previous"
-                size="50"
-              ></GrPrevious>
+            <PageButton onClick={(e) => PageHandler(e)}>
+              <GrPrevious id="previous" size="50"></GrPrevious>
             </PageButton>
 
             {/* 이전버튼 */}
-            <PageButton>
-              <GrNext
-                onClick={(e) => PageHandler(e)}
-                id="next"
-                size="50"
-              ></GrNext>
+            <PageButton onClick={(e) => PageHandler(e)}>
+              <GrNext id="next" size="50"></GrNext>
             </PageButton>
 
             {/* 이후버튼 */}
