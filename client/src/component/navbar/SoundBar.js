@@ -1,16 +1,14 @@
 import { useEffect, useRef, useState } from "react";
+
 import styled, { keyframes } from "styled-components";
 
 const SoundBar = () => {
   const [click, setClick] = useState(false);
 
-  const ref = useRef(null);
-
   useEffect(() => {
-    setTimeout(() => {
-      setClick(!click);
-    }, 4000);
+    setClick(true);
   }, []);
+  const ref = useRef(null);
 
   const handleClick = () => {
     setClick(!click);
@@ -30,7 +28,7 @@ const SoundBar = () => {
       <Line click={click} />
       <Line click={click} />
 
-      <audio src="good.mp3" ref={ref} loop />
+      <audio src="good.mp3" ref={ref} autoPlay />
     </Box>
   );
 };

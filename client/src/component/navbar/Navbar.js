@@ -1,12 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import navbarItems from "./navbarData";
-import SoundBar from "./SoundBar";
+
 const Navbar = () => {
   return (
     <Header>
       <NavbarContainer>
-        <SoundBar></SoundBar>
         <MenuContainer>
           {navbarItems.map((item) => {
             return (
@@ -27,10 +26,12 @@ const Header = styled.header``;
 const NavbarContainer = styled.nav`
   width: 100vw;
   height: 10vh;
+
   padding-top: 30px;
   z-index: 5;
   display: flex;
   justify-content: center;
+  background-color: rgb(252, 246, 244);
 `;
 const MenuContainer = styled.div`
   width: 40vw;

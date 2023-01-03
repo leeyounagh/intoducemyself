@@ -5,6 +5,7 @@ import About from "./component/about/About";
 import Project from "./component/project/Project";
 import Footer from "./component/footer/Footer";
 import MbtiDetail from "./component/about/MbtiDetail";
+
 import { Routes, Route } from "react-router-dom";
 function App() {
   return (

@@ -20,7 +20,7 @@ const Footer = () => {
 
 const FooterContainer = styled.footer`
   width: 100vw;
-  height: 7vh;
+  height: 5vh;
   padding: 10px;
   background-color: rgb(252, 246, 244);
 `;

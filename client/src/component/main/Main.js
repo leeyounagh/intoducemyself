@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Sidebar from "./sideBar/Sidebar";
+import SoundBar from "../navbar/SoundBar";
 
 const Main = () => {
   const [cdCheck, setCdCheck] = useState(false);
@@ -9,11 +10,15 @@ const Main = () => {
       setCdCheck(true);
     }, 3000);
   }, []);
+
   return (
     <MainContainer>
+      <SoundBar></SoundBar>
+
       <SidebarContainer>
         <Sidebar />
       </SidebarContainer>
+
       <MainImgDiv>
         {cdCheck === false ? (
           <MainBeforeCdImg
