@@ -45,20 +45,21 @@ const ItemPage = (props) => {
       return (
         <>
           <VideoPageTitle>{data[0].title}</VideoPageTitle>
-
-          <Iframe
-            width="560"
-            height="315"
-            src={
-              play
-                ? `${data[0].src}?autoplay=1&start=${start}&end=${end}`
-                : `${data[0].src}`
-            }
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          />
+          <IframeDiv>
+            <Iframe
+              width="560"
+              height="315"
+              src={
+                play
+                  ? `${data[0].src}?autoplay=1&start=${start}&end=${end}`
+                  : `${data[0].src}`
+              }
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            />
+          </IframeDiv>
 
           {/* 비디오부분 */}
           <VideoIconContainer>
@@ -120,7 +121,13 @@ const VideoDiv = styled.div`
   place-items: start center;
   position: relative;
 `;
-const Iframe = styled.iframe``;
+const IframeDiv = styled.div`
+  width: 100%;
+`;
+const Iframe = styled.iframe`
+  width: 30vw;
+  height: 40vh;
+`;
 const VideoPageTitle = styled.div`
   color: black;
   font-size: 40px;
@@ -136,7 +143,7 @@ const VideoPageTitle = styled.div`
 
 const VideoIconContainer = styled.div`
   margin-top: 10px;
-  width: 600px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
 `;
