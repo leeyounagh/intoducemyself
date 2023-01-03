@@ -3,6 +3,7 @@ import styled from "styled-components";
 import navbarItems from "./navbarData";
 import { GiHamburgerMenu } from "react-icons/gi";
 import MobileNavbar from "./MobileNavbar";
+import MobileSound from "./MobileSound";
 
 const Navbar = () => {
   const MobileRenderer = () => {
@@ -27,7 +28,10 @@ const Navbar = () => {
   return (
     <Header>
       {window.innerWidth <= 640 ? (
-        <MobileRenderer></MobileRenderer>
+        <>
+          <MobileRenderer></MobileRenderer>
+          <MobileSound></MobileSound>
+        </>
       ) : (
         <NavbarContainer>
           <MenuContainer>

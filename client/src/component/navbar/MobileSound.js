@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 import styled, { keyframes } from "styled-components";
 
-const SoundBar = () => {
+const MobileSound = () => {
   const [click, setClick] = useState(false);
 
   useEffect(() => {
@@ -22,45 +22,19 @@ const SoundBar = () => {
 
   return (
     <>
-      {window.innerWidth <= 640 ? null : (
-        <Box onClick={() => handleClick()}>
-          <Line click={click} />
-          <Line click={click} />
-          <Line click={click} />
-          <Line click={click} />
-          <Line click={click} />
+      <MobileBox onClick={() => handleClick()}>
+        <Line click={click} />
+        <Line click={click} />
+        <Line click={click} />
+        <Line click={click} />
+        <Line click={click} />
 
-          <audio src="good.mp3" ref={ref} autoPlay />
-        </Box>
-      )}
+        <audio src="good.mp3" ref={ref} autoPlay />
+      </MobileBox>
     </>
   );
 };
-const Box = styled.div`
-  display: flex;
-  cursor: pointer;
 
-  position: fixed;
-  left: 8rem;
-  top: 3rem;
-  z-index: 10;
-
-  & > *:nth-child(1) {
-    animation-delay: 0.2s;
-  }
-  & > *:nth-child(2) {
-    animation-delay: 0.3s;
-  }
-  & > *:nth-child(3) {
-    animation-delay: 0.4s;
-  }
-  & > *:nth-child(4) {
-    animation-delay: 0.5s;
-  }
-  & > *:nth-child(5) {
-    animation-delay: 0.8s;
-  }
-`;
 const MobileBox = styled.div`
   display: flex;
   cursor: pointer;
@@ -109,4 +83,4 @@ const Line = styled.span`
   margin: 0 0.1rem;
 `;
 
-export default SoundBar;
+export default MobileSound;
