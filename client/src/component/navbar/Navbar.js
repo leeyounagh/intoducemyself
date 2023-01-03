@@ -1,27 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import navbarItems from "./navbarData";
+import { GiHamburgerMenu } from "react-icons/gi";
+import MobileNavbar from "./MobileNavbar";
 
 const Navbar = () => {
+  const MobileRenderer = () => {
+    const [isMobileModal, setisMobileModal] = useState(false);
+
+    const DetectMobile = () => {
+      setisMobileModal(!isMobileModal);
+      console.log(isMobileModal);
+    };
+    return (
+      <MobileContainer>
+        <MobileNavbarDiv onClick={DetectMobile}>
+          {isMobileModal === false ? (
+            <GiHamburgerMenu size="60" />
+          ) : (
+            <MobileNavbar modal={isMobileModal} />
+          )}
+        </MobileNavbarDiv>
+      </MobileContainer>
+    );
+  };
   return (
     <Header>
-      <NavbarContainer>
-        <MenuContainer>
-          {navbarItems.map((item) => {
-            return (
-              <>
-                <MenuItemStyle>
-                  <a href={item.link}>{item.title}</a>
-                </MenuItemStyle>
-              </>
-            );
-          })}
-        </MenuContainer>
-      </NavbarContainer>
+      {window.innerWidth <= 640 ? (
+        <MobileRenderer></MobileRenderer>
+      ) : (
+        <NavbarContainer>
+          <MenuContainer>
+            {navbarItems.map((item) => {
+              return (
+                <>
+                  <MenuItemStyle>
+                    <a href={item.link}>{item.title}</a>
+                  </MenuItemStyle>
+                </>
+              );
+            })}
+          </MenuContainer>
+        </NavbarContainer>
+      )}
     </Header>
   );
 };
 const Header = styled.header``;
+const MobileNavbarDiv = styled.div`
+  width: 60px;
+`;
+const MobileContainer = styled.div`
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 100vw;
+  height: 60px;
+`;
 
 const NavbarContainer = styled.nav`
   width: 100vw;

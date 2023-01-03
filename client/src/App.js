@@ -5,13 +5,13 @@ import About from "./component/about/About";
 import Project from "./component/project/Project";
 import Footer from "./component/footer/Footer";
 import MbtiDetail from "./component/about/MbtiDetail";
+import Sidebar from "./component/main/sideBar/Sidebar";
 
 import { Routes, Route } from "react-router-dom";
 function App() {
   return (
     <div className="App">
       <Navbar />
-
       <Routes>
         <Route exact path="/" element={<Main />} />
         <Route exact path="/about" element={<About />}></Route>

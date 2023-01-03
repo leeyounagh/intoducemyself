@@ -12,6 +12,7 @@ const About = () => {
   return (
     <>
       <ParticlesComponent />
+
       <AboutSection>
         <Chart />
       </AboutSection>
