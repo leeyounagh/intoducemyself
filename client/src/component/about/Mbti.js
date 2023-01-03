@@ -1,25 +1,40 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import LovelyHeartAni from "../../animation/LovelyHeartAni";
+import MbtiData from "./Data/MbtiData";
+import MbtiDetail from "./MbtiDetail";
+
 const Mbti = () => {
   const [MbtiCheck, setMbtiCheck] = useState(false);
-
+  const [mbtiValue, setMbtiValue] = useState("");
+  let Mbti = [];
   const OnSubmit = (e) => {
     e.preventDefault();
-    setMbtiCheck(true);
+    Mbti = MbtiData.filter(
+      (item) => item.id.toLowerCase() === mbtiValue.toLowerCase()
+    );
+    if (Mbti.length === 0) {
+      alert("MBTI를 다시 확인해주세요");
+      setMbtiValue("");
+      setMbtiCheck(false);
+    }
+    if (Mbti.length === 1) {
+      setMbtiCheck(true);
+    }
   };
 
   const MbtiResult = () => {
     return (
       <>
         <MbtiDiv>
-          <MbtiResultText>당신의 mbti는...~입니다.</MbtiResultText>
+          <MbtiResultText>당신의 mbti는 {mbtiValue}입니다.</MbtiResultText>
 
           {/* 여기에 a태그 넣어서 페이지 이동 */}
           <MbtiResultAtagDiv>
-            <a href="/"></a>
+            <a href={`/${mbtiValue}`}>결과 확인하기</a>
           </MbtiResultAtagDiv>
 
-          <BackButton>다시하기</BackButton>
+          <a href="/about">다시하기</a>
         </MbtiDiv>
       </>
     );
@@ -30,8 +45,16 @@ const Mbti = () => {
         <MbtiDiv>
           <MbtiTitle>당신과 수연이와의 협업 시너지는?</MbtiTitle>
           <MbtiText>당신의 Mbti를 입력해주세요.</MbtiText>
+          <MbtiInput
+            value={mbtiValue}
+            type="text"
+            onChange={(e) => {
+              e.preventDefault();
+              setMbtiValue(e.target.value);
+            }}
+            placeholder="당신의 mbti를 입력해주세요...😘"
+          />
           <Form>
-            <MbtiInput placeholder="당신의 mbti를 입력해주세요...😘" />
             <SubmitButton
               onClick={(e) => {
                 OnSubmit(e);
@@ -80,8 +103,13 @@ const MbtiInput = styled.input`
   width: 40%;
   height: 10%;
   position: absolute;
-  top: 45%;
+  top: 47%;
   left: 30%;
+  input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
 `;
 const SubmitButton = styled.button`
   width: 30%;
@@ -112,5 +140,9 @@ const MbtiResultAtagDiv = styled.div`
   position: absolute;
   top: 55%;
   left: 53%;
+  a {
+    text-decoration: none;
+    color: black;
+  }
 `;
 export default Mbti;

@@ -74,7 +74,7 @@ const IconDiv = styled.div`
   }
 `;
 const IconBorder = styled.div`
-  height: 130px;
+  height: 200px;
   z-index: 10;
   border-left: solid black;
   position: absolute;
