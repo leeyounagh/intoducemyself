@@ -1,10 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import navbarItems from "./navbarData";
+import SoundBar from "./SoundBar";
 const Navbar = () => {
   return (
     <Header>
       <NavbarContainer>
+        <SoundBar></SoundBar>
         <MenuContainer>
           {navbarItems.map((item) => {
             return (
