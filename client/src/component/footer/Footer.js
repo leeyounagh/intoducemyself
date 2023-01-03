@@ -23,7 +23,6 @@ const FooterContainer = styled.footer`
   height: 7vh;
   padding: 10px;
   background-color: rgb(252, 246, 244);
-  margin-bottom: 20px;
 `;
 
 const FooterItemDiv = styled.div`

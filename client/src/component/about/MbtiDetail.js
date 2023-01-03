@@ -43,20 +43,25 @@ const MbtiResultContainer = styled.section`
 const MbtiResultDiv = styled.div`
   width: 50%;
   height: 70%;
-  border: 1px solid black;
+  border: 2px solid black;
   background-color: rgb(252, 246, 244);
   text-align: center;
+  border-radius: 15px;
+  padding: 20px;
+  &:hover {
+    background-color: black;
+    color: white;
+  }
 `;
 const MbitResultTitle = styled.div`
   font-size: 40px;
 
-  margin-top: 50px;
+  margin-top: 80px;
 `;
 
 const MbtiInnerText = styled.div`
   font-size: 25px;
-
-  margin-top: 30px;
+  margin-top: 50px;
 `;
 
 const MbtiInnerTitle = styled.div`
@@ -68,5 +73,7 @@ const MbtiInnerTitle = styled.div`
 const MbtiInnerSubTitle = styled.div`
   font-size: 30px;
 `;
-const MbtiResultInnerContainer = styled.div``;
+const MbtiResultInnerContainer = styled.div`
+  position: relative;
+`;
 export default MbtiDetail;

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { lazy, useState } from "react";
 import styled from "styled-components";
 import { GrNext } from "react-icons/gr";
 import { GrPrevious } from "react-icons/gr";
-import ItemPage from "./ProjectItems/Itempage";
+const Item = lazy(() => import("./ProjectItems/Itempage"));
 
 const Project = () => {
   let [pageCount, setPageCount] = useState(1);
@@ -30,7 +30,7 @@ const Project = () => {
     <>
       <Section id={pageCount}>
         <ProjectInnerDiv>
-          <ItemPage page={pageCount} />
+          <Item page={pageCount} />
 
           <PageButtonDiv>
             <PageButton onClick={(e) => PageHandler(e)}>

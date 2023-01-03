@@ -1,15 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Sidebar from "./sideBar/Sidebar";
 
 const Main = () => {
+  const [cdCheck, setCdCheck] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      setCdCheck(true);
+    }, 3000);
+  }, []);
   return (
     <MainContainer>
       <SidebarContainer>
         <Sidebar />
       </SidebarContainer>
       <MainImgDiv>
-        <MainCdImg src="cd.png" alt="커버" width="430px" height="450px" />
+        {cdCheck === false ? (
+          <MainBeforeCdImg
+            src="cd.png"
+            alt="커버"
+            width="430px"
+            height="450px"
+          />
+        ) : (
+          <MainCdImg src="cd.png" alt="커버" width="430px" height="450px" />
+        )}
       </MainImgDiv>
       <MainImgDiv>
         <MainCoverContainer>
@@ -51,6 +66,7 @@ const MainCoverRight = styled.div`
   left: 75%;
   top: 15%;
 `;
+
 const MainImgDiv = styled.div``;
 const MainCoverImg = styled.img`
   z-index: 10;
@@ -81,7 +97,21 @@ const MainCdImg = styled.img`
     }
   }
 `;
+const MainBeforeCdImg = styled.img`
+  z-index: 5;
+  position: absolute;
+  left: 40%;
+  top: 20%;
 
+  animation: translate_image 3s ease-in;
+  transform-origin: 50% 50%;
+
+  @keyframes translate_image {
+    100% {
+      transform: translateX(200px);
+    }
+  }
+`;
 const SidebarContainer = styled.div`
   position: absolute;
   left: 50px;

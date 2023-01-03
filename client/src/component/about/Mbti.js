@@ -23,6 +23,10 @@ const Mbti = () => {
     }
   };
 
+  const RetryHandler = () => {
+    setMbtiCheck(false);
+    setMbtiValue("");
+  };
   const MbtiResult = () => {
     return (
       <>
@@ -30,11 +34,12 @@ const Mbti = () => {
           <MbtiResultText>당신의 mbti는 {mbtiValue}입니다.</MbtiResultText>
 
           {/* 여기에 a태그 넣어서 페이지 이동 */}
-          <MbtiResultAtagDiv>
-            <a href={`/${mbtiValue}`}>결과 확인하기</a>
-          </MbtiResultAtagDiv>
 
-          <a href="/about">다시하기</a>
+          <RetryButton onClick={RetryHandler}>다시하기</RetryButton>
+
+          <a href={`/${mbtiValue}`}>
+            <ResultButton>결과 확인하기</ResultButton>
+          </a>
         </MbtiDiv>
       </>
     );
@@ -61,7 +66,7 @@ const Mbti = () => {
               }}
               type="submit"
             >
-              제출
+              확인
             </SubmitButton>
           </Form>
         </MbtiDiv>
@@ -105,11 +110,19 @@ const MbtiInput = styled.input`
   position: absolute;
   top: 47%;
   left: 30%;
-  input {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+  font-size: 20px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  border: none;
+  border-bottom: 1px solid #757575;
+  background-color: rgb(252, 246, 244);
+  &:focus {
+    outline: none;
   }
+  font-family: "bitbit";
+  src: url("//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff"),
+    url("//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff2");
+  transition: all 0.4s;
 `;
 const SubmitButton = styled.button`
   width: 30%;
@@ -117,15 +130,31 @@ const SubmitButton = styled.button`
   position: absolute;
   top: 70%;
   left: 35%;
+  font-size: 25px;
+
+  background-color: white;
+  color: black;
+  border: 3px solid black;
+  border-radius: 30px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-family: "bitbit";
+  src: url("//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff"),
+    url("//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff2");
+  transition: all 0.4s;
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    background-color: black;
+    color: white;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+  }
 `;
 
-const BackButton = styled.button`
-  width: 15%;
-  height: 10%;
-  position: absolute;
-  top: 55%;
-  left: 34%;
-`;
 const MbtiResultText = styled.div`
   font-size: 40px;
   position: absolute;
@@ -133,13 +162,61 @@ const MbtiResultText = styled.div`
   left: 35%;
 `;
 
-const MbtiResultAtagDiv = styled.div`
-  border: 1px solid black;
-  width: 15%;
+const ResultButton = styled.button`
+  width: 20%;
   height: 10%;
+  margin-right: 20px;
   position: absolute;
+  left: 55%;
   top: 55%;
-  left: 53%;
+  font-size: 25px;
+  background-color: white;
+  color: black;
+  border: 3px solid black;
+  border-radius: 30px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-family: "bitbit";
+  src: url("//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff"),
+    url("//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff2");
+  transition: all 0.4s;
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    background-color: black;
+    color: white;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+  }
+`;
+const RetryButton = styled.button`
+  width: 20%;
+  height: 10%;
+  margin-right: 20px;
+  position: absolute;
+  left: 30%;
+  top: 55%;
+  font-size: 25px;
+  background-color: white;
+  color: black;
+  border: 3px solid black;
+  border-radius: 30px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-family: "bitbit";
+  src: url("//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff"),
+    url("//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff2");
+  transition: all 0.4s;
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    background-color: black;
+    color: white;
+  }
   a {
     text-decoration: none;
     color: black;
