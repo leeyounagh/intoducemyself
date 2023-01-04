@@ -53,10 +53,8 @@ const MobileContainer = styled.div`
   top: 0px;
   width: 300px;
   height: 1000px;
-  //   border: 3px solid lightgray;
   background-color: rgb(252, 246, 244);
-
-  z-index: 50;
+  z-index: 110;
   animation: modal_ani 0.5s linear;
 
   @keyframes modal_ani {
