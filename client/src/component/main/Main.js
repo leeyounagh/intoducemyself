@@ -78,6 +78,8 @@ const Main = () => {
 const MainImgContainer = styled.div`
   position: relative;
 
+  width: 100vw;
+  height: 70vh;
   @media (max-width: 640px) {
     margin-left: 10px;
     width: 100vw;
@@ -100,8 +102,8 @@ const MainCoverContainer = styled.div`
 const MainCoverLeft = styled.div``;
 const MainCoverRight = styled.div`
   position: absolute;
-  left: 75%;
-  top: 15%;
+  left: 52%;
+  top: 28%;
   z-index: 100;
   @media (max-width: 640px) {
     position: absolute;
@@ -113,7 +115,15 @@ const MainCoverRight = styled.div`
 const MainImgDiv = styled.div``;
 const MainCoverImg = styled.img`
   z-index: 50;
+
   position: absolute;
+  left: 35%;
+  top: 20%;
+  @media (max-width: 640px) {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+  }
   box-shadow: 5px 5px 26px 5px gray;
 `;
 
@@ -132,7 +142,7 @@ const MainCoverText = styled.h1`
 const MainCdImg = styled.img`
   z-index: 5;
   position: absolute;
-  left: 50%;
+  left: 45%;
   top: 20%;
 
   animation: rotate_image 6s linear infinite;
@@ -152,7 +162,7 @@ const MainCdImg = styled.img`
 const MainBeforeCdImg = styled.img`
   z-index: 5;
   position: absolute;
-  left: 40%;
+  left: 35%;
   top: 20%;
 
   animation: translate_image 3s ease-in;
