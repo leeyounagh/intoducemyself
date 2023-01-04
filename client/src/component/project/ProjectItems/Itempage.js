@@ -45,10 +45,14 @@ const ItemPage = (props) => {
       return (
         <>
           <VideoPageTitle>{data[0].title}</VideoPageTitle>
-          <IframeDiv>
+          {window.innerWidth <= 640 ? (
             <Iframe
-              width="560"
-              height="315"
+              style={{
+                width: "70vw",
+                position: "absolute",
+                left: "-20vw",
+                top: "10vh",
+              }}
               src={
                 play
                   ? `${data[0].src}?autoplay=1&start=${start}&end=${end}`
@@ -59,7 +63,23 @@ const ItemPage = (props) => {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
             />
-          </IframeDiv>
+          ) : (
+            <IframeDiv>
+              <Iframe
+                width="560"
+                height="315"
+                src={
+                  play
+                    ? `${data[0].src}?autoplay=1&start=${start}&end=${end}`
+                    : `${data[0].src}`
+                }
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              />
+            </IframeDiv>
+          )}
 
           {/* 비디오부분 */}
           <VideoIconContainer>
@@ -122,11 +142,16 @@ const VideoDiv = styled.div`
   position: relative;
 `;
 const IframeDiv = styled.div`
-  width: 100%;
+  width: 100vw;
+  border: 1px solid black;
 `;
 const Iframe = styled.iframe`
   width: 30vw;
   height: 40vh;
+  @media (max-width: 640px) {
+    position: absolute;
+    left: 10%;
+  }
 `;
 const VideoPageTitle = styled.div`
   color: black;
@@ -139,6 +164,10 @@ const VideoPageTitle = styled.div`
     format("woff");
   font-weight: normal;
   font-style: normal;
+  @media (max-width: 640px) {
+    position: absolute;
+    left: 10%;
+  }
 `;
 
 const VideoIconContainer = styled.div`

@@ -54,7 +54,7 @@ const Mbti = () => {
             type="text"
             onChange={(e) => {
               e.preventDefault();
-              setMbtiValue(e.target.value);
+              setMbtiValue(e.target.value.toLowerCase());
             }}
             placeholder="당신의 mbti를 입력해주세요...😘"
           />
