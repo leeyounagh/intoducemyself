@@ -63,7 +63,7 @@ const Section = styled.section`
   position: relative;
 
   @media (max-width: 640px) {
-    width: 100%;
+    width: 100vw;
     margin-top: 30px;
     height: 90vh;
   }

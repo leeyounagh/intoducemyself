@@ -72,7 +72,7 @@ const SwiperTitle = styled.div`
 `;
 const SwiperDesc = styled.div`
   @media (max-width: 640px) {
-    font-size: 20px;
+    font-size: 15px;
   }
 `;
 const StyledSwiper = styled(Swiper)`

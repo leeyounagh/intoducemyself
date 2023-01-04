@@ -135,11 +135,13 @@ const MbtiInput = styled.input`
   &:focus {
     outline: none;
   }
-  font-family: "bitbit";
-  src: url("//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff"),
-    url("//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff2");
-  transition: all 0.4s;
 
+  transition: all 0.4s;
+  font-family: "양진체";
+  src: url("https://cdn.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
   @media (max-width: 640px) {
     font-size: 10px;
     position: absolute;
@@ -155,16 +157,18 @@ const SubmitButton = styled.button`
   top: 70%;
   left: 35%;
   font-size: 25px;
-
+  font-family: "양진체";
+  src: url("https://cdn.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
   background-color: white;
   color: black;
   border: 3px solid black;
   border-radius: 30px;
   text-transform: uppercase;
   letter-spacing: 4px;
-  font-family: "bitbit";
-  src: url("//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff"),
-    url("//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff2");
+
   transition: all 0.4s;
   &:focus {
     outline: none;
@@ -207,8 +211,11 @@ const ResultButton = styled.button`
   text-transform: uppercase;
   letter-spacing: 4px;
   font-family: "bitbit";
-  src: url("//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff"),
-    url("//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff2");
+  font-family: "양진체";
+  src: url("https://cdn.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
   transition: all 0.4s;
   &:focus {
     outline: none;
@@ -243,9 +250,12 @@ const RetryButton = styled.button`
   border-radius: 30px;
   text-transform: uppercase;
   letter-spacing: 4px;
-  font-family: "bitbit";
-  src: url("//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff"),
-    url("//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff2");
+
+  font-family: "양진체";
+  src: url("https://cdn.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
   transition: all 0.4s;
   &:focus {
     outline: none;
