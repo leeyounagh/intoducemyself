@@ -1,12 +1,21 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import AboutDescData from "./Data/AboutDescData";
 
 const SkillDesc = () => {
+  const [desc, setDesc] = useState([]);
+
+  useEffect(() => {
+    axios.get("/AboutDescData.json").then((res) => {
+      const { aboutDesc } = res.data;
+      setDesc(aboutDesc);
+    });
+  }, []);
+
   return (
     <SkillDescContainer>
       <SkillTitleDiv>Front-Engineer가 되기 위하여..</SkillTitleDiv>
-      {AboutDescData.map((item) => {
+      {desc.map((item) => {
         return (
           <>
             <SkillInnerText>

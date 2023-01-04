@@ -1,14 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import navbarItems from "./navbarData";
 import { GiHamburgerMenu } from "react-icons/gi";
 import MobileNavbar from "./MobileNavbar";
-import { Link } from "react-router-dom";
+
 import MobileSound from "./MobileSound";
+import axios from "axios";
 
 const Navbar = () => {
+  const [navbarItem, setNavbarItems] = useState([]);
+  useEffect(() => {
+    axios.get("/navbarData.json").then((response) => {
+      const { navbarItems } = response.data;
+      setNavbarItems(navbarItems);
+    });
+  }, []);
+
   const MobileRenderer = () => {
-    const [isMobileModal, setisMobileModal] = useState(false);
+    let [isMobileModal, setisMobileModal] = useState(false);
 
     const DetectMobile = () => {
       setisMobileModal(!isMobileModal);
@@ -35,18 +43,12 @@ const Navbar = () => {
       ) : (
         <NavbarContainer>
           <MenuContainer>
-            {navbarItems.map((item) => {
+            {navbarItem.map((item) => {
               return (
                 <>
-                  {MobileContainer.innerWidth <= 640 ? (
-                    <MenuItemStyle>
-                      <Link href={item.link}>{item.title}</Link>
-                    </MenuItemStyle>
-                  ) : (
-                    <MenuItemStyle>
-                      <a href={item.link}>{item.title}</a>
-                    </MenuItemStyle>
-                  )}
+                  <MenuItemStyle>
+                    <a href={item.link}>{item.title}</a>
+                  </MenuItemStyle>
                 </>
               );
             })}

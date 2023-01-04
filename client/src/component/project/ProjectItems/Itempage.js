@@ -3,7 +3,8 @@ import styled from "styled-components";
 import { TbPlayerPlay } from "react-icons/tb";
 import { TbPlayerSkipBack } from "react-icons/tb";
 import { TbPlayerSkipForward } from "react-icons/tb";
-import projectDesc from "./projectDesc";
+import axios from "axios";
+// import projectDesc from "./projectDesc";
 
 const videoSrc = [
   {
@@ -22,6 +23,14 @@ const ItemPage = (props) => {
   const [play, setPlay] = useState(false);
   const [start, setStart] = useState(0);
   const [end, setEnd] = useState(10);
+  let [project, setProject] = useState([]);
+
+  useEffect(() => {
+    axios.get("projectDesc.json").then((res) => {
+      const { project } = res.data;
+      setProject(project);
+    });
+  }, []);
   useEffect(() => {
     setPlay(false);
   }, [props.page]);
@@ -112,14 +121,12 @@ const ItemPage = (props) => {
         </>
       );
     } else if (props.page === 2 || props.page === 4) {
-      let data = projectDesc.filter((item) => item.id === props.page);
+      let data = project.filter((item) => item.id === props.page);
       return (
         <>
           <DescDiv id={props.page}>
             <DescTitle id={props.page}>{data[0].title}</DescTitle>
-
             <DescText>{data[0].desc1}</DescText>
-
             {window.innerWidth <= 640 ? (
               <>
                 <DescText>사용언어: HTML,CSS,JS,REACT</DescText>

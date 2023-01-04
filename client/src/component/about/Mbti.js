@@ -1,23 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-
-import MbtiData from "./Data/MbtiData";
+import axios from "axios";
 
 const Mbti = () => {
   const [MbtiCheck, setMbtiCheck] = useState(false);
   const [mbtiValue, setMbtiValue] = useState("");
-  let Mbti = [];
+  let [mbti, setMbti] = useState([]);
+
+  useEffect(() => {
+    axios.get("/MbtiData.json").then((res) => {
+      const { mbti } = res.data;
+      setMbti(mbti);
+    });
+  }, []);
+
   const OnSubmit = (e) => {
     e.preventDefault();
-    Mbti = MbtiData.filter(
+
+    let searchMbti = mbti.filter(
       (item) => item.id.toLowerCase() === mbtiValue.toLowerCase()
     );
-    if (Mbti.length === 0) {
+    if (searchMbti.length === 0) {
       alert("MBTI를 다시 확인해주세요");
       setMbtiValue("");
       setMbtiCheck(false);
     }
-    if (Mbti.length === 1) {
+    if (searchMbti.length === 1) {
       setMbtiCheck(true);
     }
   };
@@ -127,7 +135,7 @@ const MbtiInput = styled.input`
   top: 47%;
   left: 30%;
   font-size: 20px;
-  padding: 10px 10px 10px 5px;
+  padding: 10px 10px 5px;
   display: block;
   border: none;
   border-bottom: 1px solid #757575;
@@ -156,7 +164,7 @@ const SubmitButton = styled.button`
   position: absolute;
   top: 70%;
   left: 35%;
-  font-size: 25px;
+  font-size: 1.2rem;
   font-family: "양진체";
   src: url("https://cdn.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff")
     format("woff");
@@ -203,7 +211,7 @@ const ResultButton = styled.button`
   position: absolute;
   left: 55%;
   top: 55%;
-  font-size: 25px;
+  font-size: 1rem;
   background-color: white;
   color: black;
   border: 3px solid black;
@@ -229,7 +237,7 @@ const ResultButton = styled.button`
     color: black;
   }
   @media (max-width: 640px) {
-    font-size: 18px;
+    font-size: 1rem;
     position: absolute;
     left: 50%;
     top: 55%;
@@ -269,7 +277,7 @@ const RetryButton = styled.button`
     color: black;
   }
   @media (max-width: 640px) {
-    font-size: 20px;
+    font-size: 1rem;
     position: absolute;
     left: 15%;
     top: 55%;

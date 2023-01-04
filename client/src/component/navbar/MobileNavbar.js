@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import MobilenavbarItems from "./MobileNavbarData";
 import ShareKakaotalk from "../main/ShareKakaotalk";
-import navbarItems from "./navbarData";
+import axios from "axios";
 import { AiOutlineClose } from "react-icons/ai";
 
 const MobileNavbar = (props) => {
+  const [navbarItems, setNavbarItems] = useState([]);
+  useEffect(() => {
+    axios.get("/navbarData.json").then((response) => {
+      const { navbarItems } = response.data;
+      setNavbarItems(navbarItems);
+    });
+  }, []);
+
   const SetModalClose = () => {
     props.ismodal = false;
   };

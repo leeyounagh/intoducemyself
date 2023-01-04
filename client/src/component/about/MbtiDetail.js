@@ -1,21 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import MbtiData from "./Data/MbtiData";
+import axios from "axios";
 import ParticlesComponent from "./utils/ParticlesComponent";
 const MbtiDetail = () => {
   const { id } = useParams();
-  const result = MbtiData.filter((item) => id === item.id.toLowerCase());
+  const [mbti, setMbti] = useState([]);
+
+  useEffect(() => {
+    axios.get("/MbtiData.json").then((res) => {
+      const { mbti } = res.data;
+      setMbti(mbti);
+    });
+  }, []);
+
+  const result = mbti.filter((item) => id === item.id.toLowerCase());
 
   const MbtiResultRender = () => {
     return result.map((item) => {
       return (
-        <MbtiResultInnerContainer>
+        <>
           <MbtiInnerTitle>당신의 Mbti는 {item.id} 입니다.</MbtiInnerTitle>
           <MbtiInnerSubTitle>{item.title}</MbtiInnerSubTitle>
-
           <MbtiInnerText>{item.desc}</MbtiInnerText>
-        </MbtiResultInnerContainer>
+        </>
       );
     });
   };
@@ -25,9 +33,9 @@ const MbtiDetail = () => {
         {window.innerWidth <= 640 ? null : <ParticlesComponent />}
 
         <MbtiResultDiv>
-          <MbitResultTitle>
+          <MbtiResultTitle>
             당신과 이수연의 협업시너지는 최고 입니다!!😍
-          </MbitResultTitle>
+          </MbtiResultTitle>
           <MbtiResultRender></MbtiResultRender>
         </MbtiResultDiv>
       </MbtiResultContainer>
@@ -46,6 +54,7 @@ const MbtiResultContainer = styled.section`
   }
 `;
 const MbtiResultDiv = styled.div`
+  position: relative;
   width: 50%;
   height: 70%;
   border: 2px solid black;
@@ -63,9 +72,11 @@ const MbtiResultDiv = styled.div`
     position: relative;
   }
 `;
-const MbitResultTitle = styled.div`
-  font-size: 40px;
-
+const MbtiResultTitle = styled.div`
+  font-size: 1.5rem;
+  position: absolute;
+  left: 30%;
+  border: 1ps solid black;
   margin-top: 80px;
   @media (max-width: 640px) {
     font-size: 30px;
@@ -76,8 +87,12 @@ const MbitResultTitle = styled.div`
 `;
 
 const MbtiInnerText = styled.div`
-  font-size: 25px;
+  font-size: 1.2rem;
   margin-top: 50px;
+  position: absolute;
+  top: 45%;
+  left: 5px;
+
   @media (max-width: 640px) {
     font-size: 20px;
     position: absolute;
@@ -87,8 +102,10 @@ const MbtiInnerText = styled.div`
 `;
 
 const MbtiInnerTitle = styled.div`
-  font-size: 30px;
-
+  font-size: 1.5rem;
+  position: absolute;
+  top: 23%;
+  left: 35%;
   margin-top: 50px;
   @media (max-width: 640px) {
     font-size: 25px;
@@ -100,7 +117,10 @@ const MbtiInnerTitle = styled.div`
 `;
 
 const MbtiInnerSubTitle = styled.div`
-  font-size: 30px;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 45%;
+  left: 30%;
   @media (max-width: 640px) {
     font-size: 25px;
     position: absolute;

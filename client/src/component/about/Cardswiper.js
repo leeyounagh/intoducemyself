@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
@@ -9,15 +9,22 @@ import "swiper/css/effect-cards";
 import { EffectCards } from "swiper";
 import SwiperCore, { Navigation } from "swiper";
 
-import Card from "./Data/CardData";
+import axios from "axios";
 
 const Cardswiper = () => {
+  const [card, setCard] = useState([]);
+  useEffect(() => {
+    axios.get("/CardData.json").then((res) => {
+      const { card } = res.data;
+      setCard(card);
+    });
+  }, []);
   SwiperCore.use([Navigation]);
 
   return (
     <CardSwiperContainer>
       <StyledSwiper effect={"cards"} grabCursor={true} modules={[EffectCards]}>
-        {Card.map((item, index) => {
+        {card.map((item, index) => {
           return (
             <CardDiv>
               <SwiperSlide

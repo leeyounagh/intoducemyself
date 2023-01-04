@@ -70,8 +70,6 @@ const Main = () => {
         </MainImgDiv>
         {/* 씨디부분  */}
       </MainImgContainer>
-
-      {/* cdCheck === false이면서 640<=일때랑 아닐때 조건문 */}
     </MainContainer>
   );
 };
