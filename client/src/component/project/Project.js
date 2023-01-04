@@ -85,7 +85,7 @@ const ProjectInnerDiv = styled.div`
 const PageButtonDiv = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   position: absolute;
   top: 50%;
 

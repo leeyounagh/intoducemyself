@@ -48,7 +48,7 @@ const ItemPage = (props) => {
           <IframeDiv>
             {window.innerWidth <= 640 ? (
               <Iframe
-                style={{ width: "60vw" }}
+                style={{ width: "70vw" }}
                 src={
                   play
                     ? `${data[0].src}?autoplay=1&start=${start}&end=${end}`
@@ -78,27 +78,36 @@ const ItemPage = (props) => {
 
           {/* 비디오부분 */}
           <VideoIconContainer>
-            <PlayButton onClick={handlePrevPlay}>
-              <TbPlayerSkipBack
-                size="50px"
-                style={{ cursor: "pointer", zIndex: "200" }}
-              />
-            </PlayButton>
+            {window.innerWidth <= 640 ? (
+              <h4>
+                아쉽게도, 모바일에서는 유튜브 정책상 미리보기 이미지만
+                지원됩니다.
+              </h4>
+            ) : (
+              <>
+                <PlayButton onClick={handlePrevPlay}>
+                  <TbPlayerSkipBack
+                    size="50px"
+                    style={{ cursor: "pointer", zIndex: "200" }}
+                  />
+                </PlayButton>
 
-            <PlayButton>
-              <TbPlayerPlay
-                onClick={handlePlay}
-                size="50px"
-                style={{ cursor: "pointer", zIndex: "200" }}
-              />
-            </PlayButton>
-            <PlayButton>
-              <TbPlayerSkipForward
-                onClick={handleNextPlay}
-                size="50px"
-                style={{ cursor: "pointer" }}
-              />
-            </PlayButton>
+                <PlayButton>
+                  <TbPlayerPlay
+                    onClick={handlePlay}
+                    size="50px"
+                    style={{ cursor: "pointer", zIndex: "200" }}
+                  />
+                </PlayButton>
+                <PlayButton>
+                  <TbPlayerSkipForward
+                    onClick={handleNextPlay}
+                    size="50px"
+                    style={{ cursor: "pointer" }}
+                  />
+                </PlayButton>
+              </>
+            )}
           </VideoIconContainer>
         </>
       );
@@ -156,7 +165,7 @@ const IframeDiv = styled.div`
   top: 20%;
   @media (max-width: 640px) {
     position: absolute;
-    left: 20%;
+    left: 15%;
     top: 20%;
   }
 `;

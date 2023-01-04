@@ -40,7 +40,7 @@ const MobileBox = styled.div`
   cursor: pointer;
 
   position: fixed;
-  left: 20rem;
+  left: 18rem;
   top: 2rem;
   z-index: 10;
 

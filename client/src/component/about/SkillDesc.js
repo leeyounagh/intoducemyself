@@ -55,7 +55,7 @@ const SkillTitleDiv = styled.div`
   font-size: 2rem;
   margin-top: 15px;
   @media (max-width: 640px) {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 `;
 const SkillInnerText = styled.div`

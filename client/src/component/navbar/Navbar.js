@@ -3,6 +3,7 @@ import styled from "styled-components";
 import navbarItems from "./navbarData";
 import { GiHamburgerMenu } from "react-icons/gi";
 import MobileNavbar from "./MobileNavbar";
+import { Link } from "react-router-dom";
 import MobileSound from "./MobileSound";
 
 const Navbar = () => {
@@ -11,7 +12,6 @@ const Navbar = () => {
 
     const DetectMobile = () => {
       setisMobileModal(!isMobileModal);
-      console.log(isMobileModal);
     };
     return (
       <MobileContainer>
@@ -38,9 +38,15 @@ const Navbar = () => {
             {navbarItems.map((item) => {
               return (
                 <>
-                  <MenuItemStyle>
-                    <a href={item.link}>{item.title}</a>
-                  </MenuItemStyle>
+                  {MobileContainer.innerWidth <= 640 ? (
+                    <MenuItemStyle>
+                      <Link href={item.link}>{item.title}</Link>
+                    </MenuItemStyle>
+                  ) : (
+                    <MenuItemStyle>
+                      <a href={item.link}>{item.title}</a>
+                    </MenuItemStyle>
+                  )}
                 </>
               );
             })}
