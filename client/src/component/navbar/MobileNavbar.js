@@ -48,11 +48,11 @@ const MobileNavbar = (props) => {
 const CloseDiv = styled.div``;
 const MobileContainer = styled.div`
   position: fixed;
-  padding: 50px;
+  padding: 20px;
   left: 0px;
   top: 0px;
-  width: 300px;
-  height: 1000px;
+  width: 350px;
+  height: 100vh;
   background-color: rgb(252, 246, 244);
   z-index: 110;
   animation: modal_ani 0.5s linear;

@@ -72,6 +72,7 @@ const SidebarContainer = styled.div`
   display: grid;
   place-items: start center;
   position: relative;
+  z-index: 200;
 `;
 const SidbarAtag = styled.a`
   text-decoration: none;

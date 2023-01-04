@@ -81,7 +81,7 @@ const MainImgContainer = styled.div`
   width: 100vw;
   height: 70vh;
   @media (max-width: 640px) {
-    margin-left: 10px;
+    margin: 20px;
     width: 100vw;
     height: 25vh;
   }
