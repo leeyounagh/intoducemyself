@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import MbtiData from "./Data/MbtiData";
 import ParticlesComponent from "./utils/ParticlesComponent";
-const MbtiDetail = (props) => {
+const MbtiDetail = () => {
   const { id } = useParams();
   const result = MbtiData.filter((item) => id === item.id.toLowerCase());
 
@@ -22,7 +22,8 @@ const MbtiDetail = (props) => {
   return (
     <>
       <MbtiResultContainer>
-        <ParticlesComponent />
+        {window.innerWidth <= 640 ? null : <ParticlesComponent />}
+
         <MbtiResultDiv>
           <MbitResultTitle>
             당신과 이수연의 협업시너지는 최고 입니다!!😍
@@ -39,6 +40,10 @@ const MbtiResultContainer = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 640px) {
+    margin-top: 100px;
+  }
 `;
 const MbtiResultDiv = styled.div`
   width: 50%;
@@ -52,28 +57,59 @@ const MbtiResultDiv = styled.div`
     background-color: black;
     color: white;
   }
+  @media (max-width: 640px) {
+    width: 100%;
+    height: 80%;
+    position: relative;
+  }
 `;
 const MbitResultTitle = styled.div`
   font-size: 40px;
 
   margin-top: 80px;
+  @media (max-width: 640px) {
+    font-size: 30px;
+    position: absolute;
+    left: 5px;
+    margin-top: 30px;
+  }
 `;
 
 const MbtiInnerText = styled.div`
   font-size: 25px;
   margin-top: 50px;
+  @media (max-width: 640px) {
+    font-size: 20px;
+    position: absolute;
+    top: 40%;
+    left: 5px;
+  }
 `;
 
 const MbtiInnerTitle = styled.div`
   font-size: 30px;
 
   margin-top: 50px;
+  @media (max-width: 640px) {
+    font-size: 25px;
+    margin-top: 25px;
+    position: absolute;
+    top: 23%;
+    left: 15%;
+  }
 `;
 
 const MbtiInnerSubTitle = styled.div`
   font-size: 30px;
+  @media (max-width: 640px) {
+    font-size: 25px;
+    position: absolute;
+    top: 35%;
+  }
 `;
 const MbtiResultInnerContainer = styled.div`
-  position: relative;
+
+
+  }
 `;
 export default MbtiDetail;

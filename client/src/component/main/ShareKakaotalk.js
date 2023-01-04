@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { RiKakaoTalkFill } from "react-icons/ri";
 import styled from "styled-components";
 
-const ShareKakaotalk = () => {
+const ShareKakaotalk = (props) => {
   const shareToKatalk = () => {
     if (window.Kakao) {
       const kakao = window.Kakao;
@@ -49,13 +49,17 @@ const ShareKakaotalk = () => {
 
   return (
     <>
-      <Button id="kakao-link-btn" onClick={() => shareToKatalk()}>
-        {window.innerWidth <= 640 ? (
-          <MobileText>카카오톡 공유하기</MobileText>
-        ) : (
+      {window.innerWidth <= 640 ? (
+        <RiKakaoTalkFill
+          size="60"
+          id="kakao-link-btn"
+          onClick={() => shareToKatalk()}
+        ></RiKakaoTalkFill>
+      ) : (
+        <Button id="kakao-link-btn" onClick={() => shareToKatalk()}>
           <RiKakaoTalkFill size="60"></RiKakaoTalkFill>
-        )}
-      </Button>
+        </Button>
+      )}
     </>
   );
 };
@@ -65,11 +69,5 @@ const Button = styled.button`
   cursor: pointer;
   background-color: rgb(252, 246, 244);
 `;
-const MobileText = styled.div`
-  font-family: "bitbit";
-  src: url("//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff"),
-    url("//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff2");
-  font-size: 30px;
-  color: black;
-`;
+
 export default ShareKakaotalk;

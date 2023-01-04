@@ -10,7 +10,7 @@ const Main = () => {
       setCdCheck(true);
     }, 3000);
   }, []);
-  console.log(window.innerWidth);
+
   return (
     <MainContainer>
       {window.innerWidth <= 640 ? null : <SoundBar></SoundBar>}

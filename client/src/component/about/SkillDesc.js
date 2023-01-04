@@ -17,7 +17,16 @@ const SkillDesc = () => {
       })}
 
       <SkillTitleDiv>Skills</SkillTitleDiv>
-      <SkillInnerText>Html,javascript,Css,React,MongoDb,nodeJs</SkillInnerText>
+      {window.innerWidth <= 640 ? (
+        <>
+          <SkillInnerText>Html,javascript,Css,</SkillInnerText>
+          <SkillInnerText>React,MongoDb,nodeJs</SkillInnerText>
+        </>
+      ) : (
+        <SkillInnerText>
+          Html,javascript,Css,React,MongoDb,nodeJs
+        </SkillInnerText>
+      )}
     </SkillDescContainer>
   );
 };
@@ -34,10 +43,20 @@ const SkillDescContainer = styled.div`
     background-color: black;
     color: white;
   }
+
+  @media (max-width: 640px) {
+    margin-top: 50px;
+    width: 80%;
+    height: 600px;
+    margin: 5px;
+  }
 `;
 const SkillTitleDiv = styled.div`
   font-size: 2rem;
   margin-top: 15px;
+  @media (max-width: 640px) {
+    font-size: 1.5rem;
+  }
 `;
 const SkillInnerText = styled.div`
   font-size: 20px;
@@ -47,6 +66,9 @@ const SkillInnerText = styled.div`
     format("woff2");
   font-weight: 700;
   font-style: normal;
+  @media (max-width: 640px) {
+    font-size: 1.2rem;
+  }
 `;
 
 export default SkillDesc;

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import LovelyHeartAni from "../../animation/LovelyHeartAni";
+
 import MbtiData from "./Data/MbtiData";
-import MbtiDetail from "./MbtiDetail";
 
 const Mbti = () => {
   const [MbtiCheck, setMbtiCheck] = useState(false);
@@ -79,6 +78,7 @@ const Mbti = () => {
 const MbtiContainer = styled.div`
   width: 100vw;
   height: 80vh;
+
   position: relative;
 `;
 const Form = styled.form``;
@@ -91,17 +91,33 @@ const MbtiDiv = styled.div`
   left: 20vw;
   top: 10vh;
   background-color: rgb(252, 246, 244);
+  @media (max-width: 640px) {
+    width: 90%;
+    position: absolute;
+    left: 5%;
+    top: 10vh;
+    margin-top: 100px;
+  }
 `;
 const MbtiTitle = styled.div`
   text-align: center;
   margin-top: 50px;
   font-size: 40px;
+  @media (max-width: 640px) {
+    font-size: 25px;
+  }
 `;
 const MbtiText = styled.div`
   font-size: 30px;
   position: absolute;
   top: 35%;
   left: 35%;
+  @media (max-width: 640px) {
+    font-size: 20px;
+    position: absolute;
+    top: 35%;
+    left: 20%;
+  }
 `;
 
 const MbtiInput = styled.input`
@@ -123,6 +139,14 @@ const MbtiInput = styled.input`
   src: url("//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff"),
     url("//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff2");
   transition: all 0.4s;
+
+  @media (max-width: 640px) {
+    font-size: 10px;
+    position: absolute;
+    top: 46%;
+    left: 30%;
+    height: 8%;
+  }
 `;
 const SubmitButton = styled.button`
   width: 30%;
@@ -160,6 +184,12 @@ const MbtiResultText = styled.div`
   position: absolute;
   top: 35%;
   left: 35%;
+  @media (max-width: 640px) {
+    font-size: 25px;
+    position: absolute;
+    top: 35%;
+    left: 12%;
+  }
 `;
 
 const ResultButton = styled.button`
@@ -191,6 +221,13 @@ const ResultButton = styled.button`
     text-decoration: none;
     color: black;
   }
+  @media (max-width: 640px) {
+    font-size: 18px;
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    width: 38%;
+  }
 `;
 const RetryButton = styled.button`
   width: 20%;
@@ -220,6 +257,13 @@ const RetryButton = styled.button`
   a {
     text-decoration: none;
     color: black;
+  }
+  @media (max-width: 640px) {
+    font-size: 20px;
+    position: absolute;
+    left: 15%;
+    top: 55%;
+    width: 30%;
   }
 `;
 export default Mbti;

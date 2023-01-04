@@ -33,5 +33,8 @@ const AboutSection = styled.section`
   align-items: center;
   height: 90vh;
   margin-bottom: 5vh;
+  @media (max-width: 640px) {
+    display: inline-block;
+  }
 `;
 export default About;

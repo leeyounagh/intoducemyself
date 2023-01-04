@@ -38,8 +38,21 @@ export const data = {
 const Chart = () => {
   return (
     <ChartContainer>
-      <Pie data={data} />
-      <SkillDesc />
+      {window.innerWidth <= 640 ? (
+        <>
+          <MobilePieDiv>
+            <Pie data={data} />
+          </MobilePieDiv>
+          <MobileDescDiv>
+            <SkillDesc />
+          </MobileDescDiv>
+        </>
+      ) : (
+        <>
+          <Pie data={data} />
+          <SkillDesc />
+        </>
+      )}
     </ChartContainer>
   );
 };
@@ -47,9 +60,24 @@ const Chart = () => {
 const ChartContainer = styled.div`
   width: 60vw;
   height: 60vh;
+
+  margin-top: 50px;
   margin-right: 50px;
   display: flex;
   justify-content: center;
+
   background-color: rgb(252, 246, 244);
+  @media (max-width: 640px) {
+    display: inline-block;
+    width: 100vw;
+    height: 1000px;
+    margin-bottom: 50px;
+  }
 `;
+const MobilePieDiv = styled.div`
+  width: 100%;
+  height: 65vh;
+  margin-top: 50px;
+`;
+const MobileDescDiv = styled.div``;
 export default Chart;
