@@ -11,7 +11,7 @@ const About = () => {
   }, []);
   return (
     <>
-      <ParticlesComponent />
+      {window.innerWidth <= 640 ? null : <ParticlesComponent />}
 
       <AboutSection>
         <Chart />

@@ -50,7 +50,11 @@ const ShareKakaotalk = () => {
   return (
     <>
       <Button id="kakao-link-btn" onClick={() => shareToKatalk()}>
-        <RiKakaoTalkFill size="60"></RiKakaoTalkFill>
+        {window.innerWidth <= 640 ? (
+          <MobileText>카카오톡 공유하기</MobileText>
+        ) : (
+          <RiKakaoTalkFill size="60"></RiKakaoTalkFill>
+        )}
       </Button>
     </>
   );
@@ -60,5 +64,12 @@ const Button = styled.button`
   z-index: 10;
   cursor: pointer;
   background-color: rgb(252, 246, 244);
+`;
+const MobileText = styled.div`
+  font-family: "bitbit";
+  src: url("//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff"),
+    url("//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff2");
+  font-size: 30px;
+  color: black;
 `;
 export default ShareKakaotalk;

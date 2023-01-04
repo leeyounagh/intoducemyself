@@ -83,7 +83,7 @@ const MainImgContainer = styled.div`
   @media (max-width: 640px) {
     margin: 20px;
     width: 100vw;
-    height: 25vh;
+    height: 40vh;
   }
 `;
 

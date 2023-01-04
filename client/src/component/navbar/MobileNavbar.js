@@ -52,7 +52,7 @@ const MobileContainer = styled.div`
   left: 0px;
   top: 0px;
   width: 350px;
-  height: 100vh;
+  height: 650px;
   background-color: rgb(252, 246, 244);
   z-index: 110;
   animation: modal_ani 0.5s linear;
@@ -69,7 +69,7 @@ const MobileContainer = styled.div`
 const MobileNavbarText = styled.div``;
 const MobileInnerDiv = styled.div`
   margin-top: 50px;
-  height: 100%;
+  height: 80%;
   display: grid;
   place-items: start center;
 
