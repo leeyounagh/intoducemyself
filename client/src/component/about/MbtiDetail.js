@@ -79,7 +79,7 @@ const MbtiResultTitle = styled.div`
   border: 1ps solid black;
   margin-top: 80px;
   @media (max-width: 640px) {
-    font-size: 30px;
+    font-size: 1.5rem;
     position: absolute;
     left: 5px;
     margin-top: 30px;
@@ -94,9 +94,9 @@ const MbtiInnerText = styled.div`
   left: 5px;
 
   @media (max-width: 640px) {
-    font-size: 20px;
+    font-size: 1.2rem;
     position: absolute;
-    top: 40%;
+    top: 35%;
     left: 5px;
   }
 `;
@@ -108,11 +108,11 @@ const MbtiInnerTitle = styled.div`
   left: 35%;
   margin-top: 50px;
   @media (max-width: 640px) {
-    font-size: 25px;
+    font-size: 1.2rem;
     margin-top: 25px;
     position: absolute;
     top: 23%;
-    left: 15%;
+    left: 20%;
   }
 `;
 
@@ -122,9 +122,10 @@ const MbtiInnerSubTitle = styled.div`
   top: 45%;
   left: 30%;
   @media (max-width: 640px) {
-    font-size: 25px;
+    font-size: 1rem;
     position: absolute;
     top: 35%;
+    left: 10%;
   }
 `;
 const MbtiResultInnerContainer = styled.div`
