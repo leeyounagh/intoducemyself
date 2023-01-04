@@ -61,8 +61,11 @@ const Section = styled.section`
   background-size: cover;
   background-repeat: none;
   position: relative;
+
   @media (max-width: 640px) {
     width: 100%;
+    margin-top: 30px;
+    height: 90vh;
   }
 `;
 
@@ -73,10 +76,10 @@ const ProjectInnerDiv = styled.div`
   backdrop-filter: brightness(1.1) blur(50px);
   display: grid;
   place-items: center center;
-  border: 1px solid black;
-    @media (max-width: 640px) {
-  position: relative;
 
+  @media (max-width: 640px) {
+    position: relative;
+  }
 `;
 
 const PageButtonDiv = styled.div`
