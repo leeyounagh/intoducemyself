@@ -57,15 +57,18 @@ const Mbti = () => {
         <MbtiDiv>
           <MbtiTitle>당신과 수연이와의 협업 시너지는?</MbtiTitle>
           <MbtiText>당신의 Mbti를 입력해주세요.</MbtiText>
-          <MbtiInput
-            value={mbtiValue}
-            type="text"
-            onChange={(e) => {
-              e.preventDefault();
-              setMbtiValue(e.target.value.toLowerCase());
-            }}
-            placeholder="당신의 mbti를 입력해주세요...😘"
-          />
+          <InputBox>
+            <MbtiInput
+              value={mbtiValue}
+              type="text"
+              onChange={(e) => {
+                e.preventDefault();
+                setMbtiValue(e.target.value.toLowerCase());
+              }}
+              placeholder="당신의 mbti를 입력해주세요...😘"
+            />
+          </InputBox>
+
           <Form>
             <SubmitButton
               onClick={(e) => {
@@ -89,6 +92,13 @@ const MbtiContainer = styled.div`
 
   position: relative;
 `;
+const InputBox = styled.div`
+  width: 100%;
+  height: 10%;
+
+  display: flex;
+  justify-content: center;
+`;
 const Form = styled.form``;
 const MbtiDiv = styled.div`
   border: 2px solid black;
@@ -111,29 +121,28 @@ const MbtiTitle = styled.div`
   text-align: center;
   margin-top: 50px;
   font-size: 40px;
+  width: 100%;
+  height: 20%;
   @media (max-width: 640px) {
-    font-size: 25px;
+    font-size: 1.2rem;
   }
 `;
 const MbtiText = styled.div`
   font-size: 30px;
-  position: absolute;
-  top: 35%;
-  left: 35%;
+  width: 100%;
+  height: 20%;
+
+  margin-top: 10px;
+  text-align: center;
   @media (max-width: 640px) {
-    font-size: 20px;
-    position: absolute;
-    top: 35%;
-    left: 20%;
+    font-size: 1.2rem;
   }
 `;
 
 const MbtiInput = styled.input`
   width: 40%;
   height: 10%;
-  position: absolute;
-  top: 47%;
-  left: 30%;
+
   font-size: 20px;
   padding: 10px 10px 5px;
   display: block;
@@ -154,7 +163,7 @@ const MbtiInput = styled.input`
     font-size: 10px;
     position: absolute;
     top: 46%;
-    left: 30%;
+    left: 25%;
     height: 8%;
   }
 `;
@@ -163,7 +172,7 @@ const SubmitButton = styled.button`
   height: 10%;
   position: absolute;
   top: 70%;
-  left: 35%;
+  left: 33%;
   font-size: 1.2rem;
   font-family: "양진체";
   src: url("https://cdn.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff")
@@ -193,14 +202,16 @@ const SubmitButton = styled.button`
 
 const MbtiResultText = styled.div`
   font-size: 40px;
-  position: absolute;
-  top: 35%;
-  left: 35%;
+
+  width: 100%;
+  height: 50%;
+  padding-top: 15%;
+
+  text-align: center;
   @media (max-width: 640px) {
-    font-size: 25px;
-    position: absolute;
-    top: 35%;
-    left: 12%;
+    padding-top: 30%;
+    height: 50%;
+    font-size: 1.5rem;
   }
 `;
 

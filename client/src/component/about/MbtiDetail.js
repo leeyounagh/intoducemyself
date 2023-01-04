@@ -74,63 +74,52 @@ const MbtiResultDiv = styled.div`
 `;
 const MbtiResultTitle = styled.div`
   font-size: 1.5rem;
-  position: absolute;
-  left: 30%;
-  border: 1ps solid black;
+
   margin-top: 80px;
+  width: 100%;
   @media (max-width: 640px) {
     font-size: 1.5rem;
-    position: absolute;
-    left: 5px;
-    margin-top: 30px;
+    text-align: center;
   }
 `;
 
 const MbtiInnerText = styled.div`
   font-size: 1.2rem;
-  margin-top: 50px;
-  position: absolute;
-  top: 45%;
-  left: 5px;
+  margin-top: 5px;
+  width: 100%;
+  height: 50%;
 
   @media (max-width: 640px) {
-    font-size: 1.2rem;
-    position: absolute;
-    top: 35%;
-    left: 5px;
+    font-size: 1rem;
+    text-align: center;
   }
 `;
 
 const MbtiInnerTitle = styled.div`
   font-size: 1.5rem;
-  position: absolute;
-  top: 23%;
-  left: 35%;
+
   margin-top: 50px;
+
+  width: 100%;
   @media (max-width: 640px) {
     font-size: 1.2rem;
     margin-top: 25px;
-    position: absolute;
-    top: 23%;
-    left: 20%;
+
+    font-size: 1rem;
+    text-align: center;
   }
 `;
 
 const MbtiInnerSubTitle = styled.div`
   font-size: 1.5rem;
-  position: absolute;
+
   top: 45%;
   left: 30%;
+
+  width: 100%;
   @media (max-width: 640px) {
     font-size: 1rem;
-    position: absolute;
-    top: 35%;
-    left: 10%;
-  }
-`;
-const MbtiResultInnerContainer = styled.div`
-
-
+    text-align: center;
   }
 `;
 export default MbtiDetail;
