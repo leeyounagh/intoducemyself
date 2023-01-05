@@ -15,6 +15,8 @@ const Navbar = () => {
     });
   }, []);
 
+  console.log(process.env);
+
   const MobileRenderer = () => {
     let [isMobileModal, setisMobileModal] = useState(false);
 

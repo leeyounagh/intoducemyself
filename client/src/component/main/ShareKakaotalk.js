@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { RiKakaoTalkFill } from "react-icons/ri";
 import styled from "styled-components";
 
+const { REACT_APP_KAKAOTALK_KEY } = process.env;
 const ShareKakaotalk = (props) => {
   useEffect(() => {
     <Button></Button>;
@@ -13,7 +14,7 @@ const ShareKakaotalk = (props) => {
       // 중복 initialization 방지
       if (!kakao.isInitialized()) {
         // 두번째 step 에서 가져온 javascript key 를 이용하여 initialize
-        kakao.init("3e05bdbf74cf401ace1555060c34d34f");
+        kakao.init(REACT_APP_KAKAOTALK_KEY);
       }
 
       kakao.Link.createDefaultButton({
