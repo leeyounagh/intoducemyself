@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { RiKakaoTalkFill } from "react-icons/ri";
 import styled from "styled-components";
 
 const { REACT_APP_KAKAOTALK_KEY } = process.env;
+
 const ShareKakaotalk = (props) => {
   useEffect(() => {
     <Button></Button>;
