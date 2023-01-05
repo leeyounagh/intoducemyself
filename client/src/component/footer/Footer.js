@@ -33,6 +33,10 @@ const FooterItemDiv = styled.div`
 
 const FooterText = styled.div`
   font-size: 15px;
+  @media (max-width: 640px) {
+    font-size: 0.5rem;
+    margin: 3px;
+  }
 `;
 
 export default Footer;

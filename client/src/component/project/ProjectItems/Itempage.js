@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { TbPlayerPlay } from "react-icons/tb";
 import { TbPlayerSkipBack } from "react-icons/tb";
 import { TbPlayerSkipForward } from "react-icons/tb";
-import projectDesc from "./projectDesc";
+import axios from "axios";
 
 const videoSrc = [
   {
@@ -22,6 +22,14 @@ const ItemPage = (props) => {
   const [play, setPlay] = useState(false);
   const [start, setStart] = useState(0);
   const [end, setEnd] = useState(10);
+  let [project, setProject] = useState([]);
+
+  useEffect(() => {
+    axios.get("projectDesc.json").then((res) => {
+      const { project } = res.data;
+      setProject(project);
+    });
+  }, []);
   useEffect(() => {
     setPlay(false);
   }, [props.page]);
@@ -45,53 +53,88 @@ const ItemPage = (props) => {
       return (
         <>
           <VideoPageTitle>{data[0].title}</VideoPageTitle>
-
-          <Iframe
-            width="560"
-            height="315"
-            src={
-              play
-                ? `${data[0].src}?autoplay=1&start=${start}&end=${end}`
-                : `${data[0].src}`
-            }
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          />
+          <IframeDiv>
+            {window.innerWidth <= 640 ? (
+              <Iframe
+                style={{ width: "70vw" }}
+                src={
+                  play
+                    ? `${data[0].src}?autoplay=1&start=${start}&end=${end}`
+                    : `${data[0].src}`
+                }
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              />
+            ) : (
+              <Iframe
+                width="560"
+                height="315"
+                src={
+                  play
+                    ? `${data[0].src}?autoplay=1&start=${start}&end=${end}`
+                    : `${data[0].src}`
+                }
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              />
+            )}
+          </IframeDiv>
 
           {/* 비디오부분 */}
           <VideoIconContainer>
-            <PlayButton onClick={handlePrevPlay}>
-              <TbPlayerSkipBack size="50px" style={{ cursor: "pointer" }} />
-            </PlayButton>
+            {window.innerWidth <= 640 ? (
+              <h4>
+                아쉽게도, 모바일에서는 유튜브 정책상 미리보기 이미지만
+                지원됩니다.
+              </h4>
+            ) : (
+              <>
+                <PlayButton onClick={handlePrevPlay}>
+                  <TbPlayerSkipBack
+                    size="50px"
+                    style={{ cursor: "pointer", zIndex: "200" }}
+                  />
+                </PlayButton>
 
-            <PlayButton>
-              <TbPlayerPlay
-                onClick={handlePlay}
-                size="50px"
-                style={{ cursor: "pointer" }}
-              />
-            </PlayButton>
-            <PlayButton>
-              <TbPlayerSkipForward
-                onClick={handleNextPlay}
-                size="50px"
-                style={{ cursor: "pointer" }}
-              />
-            </PlayButton>
+                <PlayButton>
+                  <TbPlayerPlay
+                    onClick={handlePlay}
+                    size="50px"
+                    style={{ cursor: "pointer", zIndex: "200" }}
+                  />
+                </PlayButton>
+                <PlayButton>
+                  <TbPlayerSkipForward
+                    onClick={handleNextPlay}
+                    size="50px"
+                    style={{ cursor: "pointer" }}
+                  />
+                </PlayButton>
+              </>
+            )}
           </VideoIconContainer>
         </>
       );
     } else if (props.page === 2 || props.page === 4) {
-      let data = projectDesc.filter((item) => item.id === props.page);
+      let data = project.filter((item) => item.id === props.page);
       return (
         <>
           <DescDiv id={props.page}>
             <DescTitle id={props.page}>{data[0].title}</DescTitle>
-
             <DescText>{data[0].desc1}</DescText>
-            <DescText>{data[0].word}</DescText>
+            {window.innerWidth <= 640 ? (
+              <>
+                <DescText>사용언어: HTML,CSS,JS,REACT</DescText>
+                <DescText>MONGODB,NODEJS</DescText>
+              </>
+            ) : (
+              <DescText>{data[0].word}</DescText>
+            )}
+            {/* <DescText>{data[0].word}</DescText> */}
             <DescText>{data[0].desc2}</DescText>
             <DescText>{data[0].desc3}</DescText>
             <DescText>{data[0].desc4}</DescText>
@@ -114,13 +157,28 @@ const ItemPage = (props) => {
 };
 
 const VideoDiv = styled.div`
-  width: 30vw;
+  width: 100vw;
   height: 60vh;
   display: grid;
   place-items: start center;
+
   position: relative;
 `;
-const Iframe = styled.iframe``;
+const IframeDiv = styled.div`
+  width: 100%;
+  position: absolute;
+  left: 35%;
+  top: 20%;
+  @media (max-width: 640px) {
+    position: absolute;
+    left: 15%;
+    top: 20%;
+  }
+`;
+const Iframe = styled.iframe`
+  width: 30vw;
+  height: 40vh;
+`;
 const VideoPageTitle = styled.div`
   color: black;
   font-size: 40px;
@@ -136,9 +194,15 @@ const VideoPageTitle = styled.div`
 
 const VideoIconContainer = styled.div`
   margin-top: 10px;
-  width: 600px;
+  width: 30%;
   display: flex;
   justify-content: space-between;
+
+  position: absolute;
+  top: 90%;
+  @media (max-width: 640px) {
+    width: 70%;
+  }
 `;
 const DescDiv = styled.div`
   width: 40vw;
@@ -157,6 +221,16 @@ const DescDiv = styled.div`
     color: black;
     font-size: 25px;
     color: ${(props) => (props.id === 4 ? "white" : "black")};
+  }
+  @media (max-width: 640px) {
+    width: 70%;
+    position: absolute;
+    top: 0%;
+    a {
+      text-decoration: none;
+      color: black;
+      font-size: 15px;
+    }
   }
 `;
 const DescTitle = styled.div`
@@ -179,6 +253,9 @@ const DescText = styled.div`
   text-align: center;
   font-size: 20px;
   font-weight: 100;
+  @media (max-width: 640px) {
+    font-size: 15px;
+  }
 `;
 const AtagDiv = styled.div`
   margin-top: 20px;

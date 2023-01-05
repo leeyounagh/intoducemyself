@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
@@ -9,15 +9,22 @@ import "swiper/css/effect-cards";
 import { EffectCards } from "swiper";
 import SwiperCore, { Navigation } from "swiper";
 
-import Card from "./Data/CardData";
+import axios from "axios";
 
 const Cardswiper = () => {
+  const [card, setCard] = useState([]);
+  useEffect(() => {
+    axios.get("/CardData.json").then((res) => {
+      const { card } = res.data;
+      setCard(card);
+    });
+  }, []);
   SwiperCore.use([Navigation]);
 
   return (
     <CardSwiperContainer>
       <StyledSwiper effect={"cards"} grabCursor={true} modules={[EffectCards]}>
-        {Card.map((item, index) => {
+        {card.map((item, index) => {
           return (
             <CardDiv>
               <SwiperSlide
@@ -26,6 +33,7 @@ const Cardswiper = () => {
                   backgroundImage: `url(${item.src})`,
                   backgroundSize: "cover",
                   borderRadius: "18px",
+                  backgroundPosition: "center center",
                 }}
               >
                 <CardLetterBox>
@@ -49,6 +57,12 @@ const CardLetterBox = styled.div`
   width: 50%;
   background-color: rgb(252, 246, 244);
   border-radius: 20px;
+  @media (max-width: 640px) {
+    padding: 10px;
+    position: absolute;
+    top: 68%;
+    left: 25%;
+  }
 `;
 const SwiperTitle = styled.div`
   font-size: 40px;
@@ -59,8 +73,15 @@ const SwiperTitle = styled.div`
   align-items: flex-end;
   z-index: 1;
   margin-bottom: 20px;
+  @media (max-width: 640px) {
+    font-size: 30px;
+  }
 `;
-const SwiperDesc = styled.div``;
+const SwiperDesc = styled.div`
+  @media (max-width: 640px) {
+    font-size: 15px;
+  }
+`;
 const StyledSwiper = styled(Swiper)`
   width: 560px;
   height: 720px;
@@ -84,6 +105,11 @@ const StyledSwiper = styled(Swiper)`
   }
   &:nth-child(5n) {
   }
+
+  @media (max-width: 640px) {
+    width: 330px;
+    height: 520px;
+  }
 `;
 
 const CardDiv = styled.div`
@@ -97,6 +123,9 @@ const CardSwiperContainer = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
+  @media (max-width: 640px) {
+    margin-top: 150px;
+  }
 `;
 
 export default Cardswiper;

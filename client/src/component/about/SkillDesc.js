@@ -1,12 +1,21 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import AboutDescData from "./Data/AboutDescData";
 
 const SkillDesc = () => {
+  const [desc, setDesc] = useState([]);
+
+  useEffect(() => {
+    axios.get("/AboutDescData.json").then((res) => {
+      const { aboutDesc } = res.data;
+      setDesc(aboutDesc);
+    });
+  }, []);
+
   return (
     <SkillDescContainer>
       <SkillTitleDiv>Front-Engineer가 되기 위하여..</SkillTitleDiv>
-      {AboutDescData.map((item) => {
+      {desc.map((item) => {
         return (
           <>
             <SkillInnerText>
@@ -17,7 +26,16 @@ const SkillDesc = () => {
       })}
 
       <SkillTitleDiv>Skills</SkillTitleDiv>
-      <SkillInnerText>Html,javascript,Css,React,MongoDb,nodeJs</SkillInnerText>
+      {window.innerWidth <= 640 ? (
+        <>
+          <SkillInnerText>Html,javascript,Css,</SkillInnerText>
+          <SkillInnerText>React,MongoDb,nodeJs</SkillInnerText>
+        </>
+      ) : (
+        <SkillInnerText>
+          Html,javascript,Css,React,MongoDb,nodeJs
+        </SkillInnerText>
+      )}
     </SkillDescContainer>
   );
 };
@@ -34,10 +52,20 @@ const SkillDescContainer = styled.div`
     background-color: black;
     color: white;
   }
+
+  @media (max-width: 640px) {
+    margin-top: 50px;
+    width: 80%;
+    height: 600px;
+    margin: 5px;
+  }
 `;
 const SkillTitleDiv = styled.div`
   font-size: 2rem;
   margin-top: 15px;
+  @media (max-width: 640px) {
+    font-size: 1.3rem;
+  }
 `;
 const SkillInnerText = styled.div`
   font-size: 20px;
@@ -47,6 +75,9 @@ const SkillInnerText = styled.div`
     format("woff2");
   font-weight: 700;
   font-style: normal;
+  @media (max-width: 640px) {
+    font-size: 1.2rem;
+  }
 `;
 
 export default SkillDesc;

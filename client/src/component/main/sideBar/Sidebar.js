@@ -7,17 +7,6 @@ import { BsYoutube } from "react-icons/bs";
 import ShareKakaotalk from "../ShareKakaotalk";
 
 const Sidebar = () => {
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://developers.kakao.com/sdk/js/kakao.js";
-    script.async = true;
-
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
   return (
     <SidebarContainer>
       <IconDiv>
@@ -72,6 +61,7 @@ const SidebarContainer = styled.div`
   display: grid;
   place-items: start center;
   position: relative;
+  z-index: 200;
 `;
 const SidbarAtag = styled.a`
   text-decoration: none;

@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { RiKakaoTalkFill } from "react-icons/ri";
 import styled from "styled-components";
 
-const ShareKakaotalk = () => {
+const { REACT_APP_KAKAOTALK_KEY } = process.env;
+
+const ShareKakaotalk = (props) => {
+  useEffect(() => {
+    <Button></Button>;
+  }, []);
+  useEffect(() => {
+    shareToKatalk();
+  }, []);
+
   const shareToKatalk = () => {
     if (window.Kakao) {
       const kakao = window.Kakao;
@@ -10,7 +19,7 @@ const ShareKakaotalk = () => {
       // 중복 initialization 방지
       if (!kakao.isInitialized()) {
         // 두번째 step 에서 가져온 javascript key 를 이용하여 initialize
-        kakao.init("3e05bdbf74cf401ace1555060c34d34f");
+        kakao.init(REACT_APP_KAKAOTALK_KEY);
       }
 
       kakao.Link.createDefaultButton({
@@ -20,7 +29,7 @@ const ShareKakaotalk = () => {
         content: {
           title: "suyoen playlist",
           description: "이수연의 포트폴리오입니다.",
-          imageUrl: "카톡썸네일.PNG", // i.e. process.env.FETCH_URL + '/logo.png'
+          imageUrl: "카톡썸네일.png", // i.e. process.env.FETCH_URL + '/logo.png'
           link: {
             mobileWebUrl: "https://glittery-gumdrop-57389e.netlify.app",
             webUrl: "https://glittery-gumdrop-57389e.netlify.app",
@@ -49,9 +58,17 @@ const ShareKakaotalk = () => {
 
   return (
     <>
-      <Button id="kakao-link-btn" onClick={() => shareToKatalk()}>
-        <RiKakaoTalkFill size="60"></RiKakaoTalkFill>
-      </Button>
+      {window.innerWidth <= 640 ? (
+        <RiKakaoTalkFill
+          size="60"
+          id="kakao-link-btn"
+          onClick={() => shareToKatalk()}
+        ></RiKakaoTalkFill>
+      ) : (
+        <Button id="kakao-link-btn" onClick={() => shareToKatalk()}>
+          <RiKakaoTalkFill size="60"></RiKakaoTalkFill>
+        </Button>
+      )}
     </>
   );
 };
@@ -59,6 +76,7 @@ const Button = styled.button`
   border: none;
   z-index: 10;
   cursor: pointer;
-  background-color: rgb(252, 246, 244);N
+  background-color: rgb(252, 246, 244);
 `;
+
 export default ShareKakaotalk;

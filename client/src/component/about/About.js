@@ -9,9 +9,12 @@ const About = () => {
   useEffect(() => {
     <ParticlesComponent />;
   }, []);
+
+  console.log(window.navigator.userAgent);
   return (
     <>
-      <ParticlesComponent />
+      {window.innerWidth <= 640 ? null : <ParticlesComponent />}
+
       <AboutSection>
         <Chart />
       </AboutSection>
@@ -27,10 +30,14 @@ const About = () => {
 
 const AboutSection = styled.section`
   width: 100%;
+
   display: flex;
   justify-content: center;
   align-items: center;
   height: 90vh;
   margin-bottom: 5vh;
+  @media (max-width: 640px) {
+    display: inline-block;
+  }
 `;
 export default About;
