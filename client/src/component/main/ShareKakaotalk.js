@@ -8,6 +8,10 @@ const ShareKakaotalk = (props) => {
   useEffect(() => {
     <Button></Button>;
   }, []);
+  useEffect(() => {
+    shareToKatalk();
+  }, []);
+
   const shareToKatalk = () => {
     if (window.Kakao) {
       const kakao = window.Kakao;
