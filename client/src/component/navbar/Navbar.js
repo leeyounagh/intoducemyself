@@ -3,9 +3,9 @@ import styled from "styled-components";
 import { GiHamburgerMenu } from "react-icons/gi";
 import MobileNavbar from "./MobileNavbar";
 
-import MobileSound from "./MobileSound";
 import axios from "axios";
 
+const { REACT_APP_MOBILE_RESIZE } = process.env;
 const Navbar = () => {
   const [navbarItem, setNavbarItems] = useState([]);
   useEffect(() => {
@@ -15,7 +15,7 @@ const Navbar = () => {
     });
   }, []);
 
-  console.log(process.env);
+  console.log(REACT_APP_MOBILE_RESIZE);
 
   const MobileRenderer = () => {
     let [isMobileModal, setisMobileModal] = useState(false);
@@ -40,7 +40,6 @@ const Navbar = () => {
       {window.innerWidth <= 640 ? (
         <>
           <MobileRenderer></MobileRenderer>
-          <MobileSound></MobileSound>
         </>
       ) : (
         <NavbarContainer>
