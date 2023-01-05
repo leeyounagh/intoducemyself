@@ -9,10 +9,10 @@ const ShareKakaotalk = (props) => {
     <Button></Button>;
   }, []);
   useEffect(() => {
-    shareToKatalk();
+    getKaKaotalkInfo();
   }, []);
 
-  const shareToKatalk = () => {
+  const getKaKaotalkInfo = () => {
     if (window.Kakao) {
       const kakao = window.Kakao;
 
@@ -62,10 +62,10 @@ const ShareKakaotalk = (props) => {
         <RiKakaoTalkFill
           size="60"
           id="kakao-link-btn"
-          onClick={() => shareToKatalk()}
+          onClick={() => getKaKaotalkInfo()}
         ></RiKakaoTalkFill>
       ) : (
-        <Button id="kakao-link-btn" onClick={() => shareToKatalk()}>
+        <Button id="kakao-link-btn" onClick={() => getKaKaotalkInfo()}>
           <RiKakaoTalkFill size="60"></RiKakaoTalkFill>
         </Button>
       )}
