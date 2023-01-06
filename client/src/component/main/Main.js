@@ -61,7 +61,7 @@ const Main = () => {
           {cdCheck === false && window.innerWidth > 640 ? (
             <MainBeforeCdImg
               src="cd.png"
-              alt="커버"
+              alt="cd"
               width="430px"
               height="450px"
             />
