@@ -5,11 +5,18 @@ import styled from "styled-components";
 const SkillDesc = () => {
   const [desc, setDesc] = useState([]);
 
-  useEffect(() => {
-    axios.get("/AboutDescData.json").then((res) => {
-      const { aboutDesc } = res.data;
+  const getDescData = async () => {
+    try {
+      const response = await axios.get("/AboutDescData.json");
+      const { aboutDesc } = response.data;
       setDesc(aboutDesc);
-    });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getDescData();
   }, []);
 
   return (

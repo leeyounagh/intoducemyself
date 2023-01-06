@@ -23,13 +23,20 @@ const ItemPage = (props) => {
   const [start, setStart] = useState(0);
   const [end, setEnd] = useState(10);
   let [project, setProject] = useState([]);
+  const getItem = async () => {
+    try {
+      const response = await axios.get("projectDesc.json");
+      const { project } = await response.data;
+      setProject(project);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
-    axios.get("projectDesc.json").then((res) => {
-      const { project } = res.data;
-      setProject(project);
-    });
+    getItem();
   }, []);
+
   useEffect(() => {
     setPlay(false);
   }, [props.page]);

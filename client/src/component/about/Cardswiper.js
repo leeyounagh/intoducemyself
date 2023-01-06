@@ -13,18 +13,25 @@ import axios from "axios";
 
 const Cardswiper = () => {
   const [card, setCard] = useState([]);
-  useEffect(() => {
-    axios.get("/CardData.json").then((res) => {
-      const { card } = res.data;
+
+  const getCardData = async () => {
+    try {
+      const response = await axios.get("/CardData.json");
+      const { card } = await response.data;
       setCard(card);
-    });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    getCardData();
   }, []);
   SwiperCore.use([Navigation]);
 
   return (
     <CardSwiperContainer>
       <StyledSwiper effect={"cards"} grabCursor={true} modules={[EffectCards]}>
-        {card.map((item, index) => {
+        {card.map((item) => {
           return (
             <CardDiv>
               <SwiperSlide
