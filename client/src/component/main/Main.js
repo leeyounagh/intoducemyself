@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Sidebar from "./sideBar/Sidebar";
-
+import SoundBar from "../navbar/SoundBar";
 const Main = () => {
   const [cdCheck, setCdCheck] = useState(false);
   useEffect(() => {
@@ -23,6 +23,7 @@ const Main = () => {
 
   return (
     <MainContainer>
+      <SoundBar></SoundBar>
       {window.innerWidth <= 640 ? null : (
         <SidebarContainer>
           <Sidebar />
@@ -60,7 +61,7 @@ const Main = () => {
           {cdCheck === false && window.innerWidth > 640 ? (
             <MainBeforeCdImg
               src="cd.png"
-              alt="커버"
+              alt="cd"
               width="430px"
               height="450px"
             />

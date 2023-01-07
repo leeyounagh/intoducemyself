@@ -5,17 +5,21 @@ import MobileNavbar from "./MobileNavbar";
 
 import axios from "axios";
 
-const { REACT_APP_MOBILE_RESIZE } = process.env;
 const Navbar = () => {
   const [navbarItem, setNavbarItems] = useState([]);
-  useEffect(() => {
-    axios.get("/navbarData.json").then((response) => {
+
+  const getNavbarData = async () => {
+    try {
+      const response = await axios.get("/navbarData.json");
       const { navbarItems } = response.data;
       setNavbarItems(navbarItems);
-    });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    getNavbarData();
   }, []);
-
-  console.log(REACT_APP_MOBILE_RESIZE);
 
   const MobileRenderer = () => {
     let [isMobileModal, setisMobileModal] = useState(false);

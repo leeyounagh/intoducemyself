@@ -7,11 +7,14 @@ const Mbti = () => {
   const [mbtiValue, setMbtiValue] = useState("");
   let [mbti, setMbti] = useState([]);
 
+  const getMbitData = async () => {
+    const response = await axios.get("/MbtiData.json");
+    const { mbti } = await response.data;
+    setMbti(mbti);
+  };
+
   useEffect(() => {
-    axios.get("/MbtiData.json").then((res) => {
-      const { mbti } = res.data;
-      setMbti(mbti);
-    });
+    getMbitData();
   }, []);
 
   const OnSubmit = (e) => {

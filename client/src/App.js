@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <SoundBar />
+      {/* <SoundBar /> */}
       <Routes>
         <Route exact path="/" element={<Main />} />
         <Route exact path="/about" element={<About />}></Route>
