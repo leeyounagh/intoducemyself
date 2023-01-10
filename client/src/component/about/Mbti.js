@@ -10,7 +10,7 @@ const Mbti = () => {
   const getMbitData = async () => {
     const response = await axios.get("/MbtiData.json");
     const { mbti } = await response.data;
-    setMbti(mbti);
+    setMbti(() => mbti);
   };
 
   useEffect(() => {
@@ -25,25 +25,23 @@ const Mbti = () => {
     );
     if (searchMbti.length === 0) {
       alert("MBTI를 다시 확인해주세요");
-      setMbtiValue("");
-      setMbtiCheck(false);
+      setMbtiValue(() => "");
+      setMbtiCheck(() => false);
     }
     if (searchMbti.length === 1) {
-      setMbtiCheck(true);
+      setMbtiCheck(() => true);
     }
   };
 
   const RetryHandler = () => {
-    setMbtiCheck(false);
-    setMbtiValue("");
+    setMbtiCheck(() => false);
+    setMbtiValue(() => "");
   };
   const MbtiResult = () => {
     return (
       <>
         <MbtiDiv>
           <MbtiResultText>당신의 mbti는 {mbtiValue}입니다.</MbtiResultText>
-
-          {/* 여기에 a태그 넣어서 페이지 이동 */}
 
           <RetryButton onClick={RetryHandler}>다시하기</RetryButton>
 

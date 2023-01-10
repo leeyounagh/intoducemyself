@@ -11,6 +11,8 @@ import SwiperCore, { Navigation } from "swiper";
 
 import axios from "axios";
 
+SwiperCore.use([Navigation]);
+
 const Cardswiper = () => {
   const [card, setCard] = useState([]);
 
@@ -18,7 +20,7 @@ const Cardswiper = () => {
     try {
       const response = await axios.get("/CardData.json");
       const { card } = await response.data;
-      setCard(card);
+      setCard(() => card);
     } catch (error) {
       console.log(error);
     }
@@ -26,7 +28,6 @@ const Cardswiper = () => {
   useEffect(() => {
     getCardData();
   }, []);
-  SwiperCore.use([Navigation]);
 
   return (
     <CardSwiperContainer>

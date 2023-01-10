@@ -27,7 +27,7 @@ const ItemPage = (props) => {
     try {
       const response = await axios.get("projectDesc.json");
       const { project } = await response.data;
-      setProject(project);
+      setProject(() => project);
     } catch (error) {
       console.log(error);
     }
@@ -42,15 +42,15 @@ const ItemPage = (props) => {
   }, [props.page]);
 
   const handlePlay = () => {
-    setPlay(!play);
+    setPlay((play) => !play);
   };
   const handleNextPlay = () => {
-    setStart(start + 10);
-    setEnd(end + 10);
+    setStart((start) => start + 10);
+    setEnd((end) => end + 10);
   };
   const handlePrevPlay = () => {
-    setStart(start - 10);
-    setEnd(end - 10);
+    setStart((start) => start - 10);
+    setEnd((end) => end - 10);
   };
 
   const PageRenderer = () => {

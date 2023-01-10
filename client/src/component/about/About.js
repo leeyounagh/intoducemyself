@@ -10,7 +10,6 @@ const About = () => {
     <ParticlesComponent />;
   }, []);
 
-  console.log(window.navigator.userAgent);
   return (
     <>
       {window.innerWidth <= 640 ? null : <ParticlesComponent />}
