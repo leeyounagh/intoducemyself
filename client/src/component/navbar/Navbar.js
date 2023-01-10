@@ -25,15 +25,15 @@ const Navbar = () => {
     let [isMobileModal, setisMobileModal] = useState(false);
 
     const DetectMobile = () => {
-      setisMobileModal(!isMobileModal);
+      setisMobileModal(() => !isMobileModal);
     };
     return (
       <MobileContainer>
-        <MobileNavbarDiv onClick={DetectMobile}>
+        <MobileNavbarDiv onClick={() => DetectMobile()}>
           {isMobileModal === false ? (
             <GiHamburgerMenu size="60" />
           ) : (
-            <MobileNavbar modal={isMobileModal} />
+            <MobileNavbar modal={() => setisMobileModal()} />
           )}
         </MobileNavbarDiv>
       </MobileContainer>
@@ -43,7 +43,7 @@ const Navbar = () => {
     <Header>
       {window.innerWidth <= 640 ? (
         <>
-          <MobileRenderer></MobileRenderer>
+          <MobileRenderer />
         </>
       ) : (
         <NavbarContainer>
@@ -82,7 +82,6 @@ const NavbarContainer = styled.nav`
   z-index: 5;
   display: flex;
   justify-content: center;
-  background-color: rgb(252, 246, 244);
 `;
 const MenuContainer = styled.div`
   width: 40vw;

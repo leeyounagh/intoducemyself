@@ -16,14 +16,15 @@ const Main = () => {
     };
   }, []);
   useEffect(() => {
-    setTimeout(() => {
-      setCdCheck(true);
+    const timer = setTimeout(() => {
+      setCdCheck(() => true);
     }, 3000);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
     <MainContainer>
-      <SoundBar></SoundBar>
+      <SoundBar />
       {window.innerWidth <= 640 ? null : (
         <SidebarContainer>
           <Sidebar />

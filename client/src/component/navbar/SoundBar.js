@@ -11,7 +11,7 @@ const SoundBar = () => {
   const ref = useRef(null);
 
   const handleClick = () => {
-    setClick(!click);
+    setClick((click) => !click);
     if (!click) {
       ref.current.play();
     } else {
@@ -22,11 +22,9 @@ const SoundBar = () => {
   return (
     <>
       <Box id={window.innerWidth} onClick={() => handleClick()}>
-        <Line click={click} />
-        <Line click={click} />
-        <Line click={click} />
-        <Line click={click} />
-        <Line click={click} />
+        {[1, 2, 3, 4, 5].map((idx) => (
+          <Line key={idx} click={click} delay={idx * 0.1 + 0.1} />
+        ))}
 
         <audio src="good.mp3" ref={ref} autoPlay />
       </Box>
@@ -42,22 +40,6 @@ const Box = styled.div`
 
   top: ${(props) => (props.id <= 640 ? "2rem" : "3rem")};
   z-index: 10;
-
-  & > *:nth-child(1) {
-    animation-delay: 0.2s;
-  }
-  & > *:nth-child(2) {
-    animation-delay: 0.3s;
-  }
-  & > *:nth-child(3) {
-    animation-delay: 0.4s;
-  }
-  & > *:nth-child(4) {
-    animation-delay: 0.5s;
-  }
-  & > *:nth-child(5) {
-    animation-delay: 0.8s;
-  }
 `;
 
 const play = keyframes`
@@ -77,6 +59,7 @@ const Line = styled.span`
 
   animation: ${play} 1s ease infinite;
   animation-play-state: ${(props) => (props.click ? "running" : "paused")};
+  animation-delay: ${({ delay }) => `${delay}s`};
   height: 2rem;
   width: 3px;
   background-color: black;

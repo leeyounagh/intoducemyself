@@ -7,15 +7,17 @@ import { AiOutlineClose } from "react-icons/ai";
 
 const MobileNavbar = (props) => {
   const [navbarItems, setNavbarItems] = useState([]);
+  const getNavbarData = async () => {
+    const response = await axios.get("/navbarData.json");
+    const { navbarItems } = response.data;
+    setNavbarItems(() => navbarItems);
+  };
   useEffect(() => {
-    axios.get("/navbarData.json").then((response) => {
-      const { navbarItems } = response.data;
-      setNavbarItems(navbarItems);
-    });
+    getNavbarData();
   }, []);
 
   const SetModalClose = () => {
-    props.ismodal = false;
+    props.modal(() => false);
   };
 
   return (
@@ -39,7 +41,6 @@ const MobileNavbar = (props) => {
             <>
               <MobileNavbarText>
                 <a href={item.link} target="_blank" rel="noreferrer noopener">
-                  {" "}
                   {item.title}
                 </a>
               </MobileNavbarText>

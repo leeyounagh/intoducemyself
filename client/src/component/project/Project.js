@@ -9,7 +9,7 @@ const Project = () => {
 
   const PageHandler = (e) => {
     if (e.target.id === "next") {
-      setPageCount(pageCount + 1);
+      setPageCount(() => pageCount + 1);
       if (pageCount === 3 || pageCount === 4) {
         if (pageCount === 4) {
           setPageCount(4);
@@ -18,10 +18,10 @@ const Project = () => {
     }
 
     if (e.target.id === "previous") {
-      setPageCount(pageCount - 1);
+      setPageCount(() => pageCount - 1);
       if (pageCount === 1 || pageCount === 2) {
         if (pageCount <= 1) {
-          setPageCount(1);
+          setPageCount(() => 1);
         }
       }
     }
@@ -100,7 +100,7 @@ const PageButton = styled.button`
   opacity: 0.5;
   background-color: transparent;
   cursor: pointer;
-  &: hover {
+  &:hover {
     transform: scale(1.2);
     opacity: 1.4;
   }

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import { FaBloggerB } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/ai";

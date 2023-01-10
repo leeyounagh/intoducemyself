@@ -6,13 +6,10 @@ const { REACT_APP_KAKAOTALK_KEY } = process.env;
 
 const ShareKakaotalk = (props) => {
   useEffect(() => {
-    <Button></Button>;
-  }, []);
-  useEffect(() => {
-    getKaKaotalkInfo();
+    getKakaotalkInfo();
   }, []);
 
-  const getKaKaotalkInfo = () => {
+  const getKakaotalkInfo = () => {
     if (window.Kakao) {
       const kakao = window.Kakao;
 
@@ -62,10 +59,10 @@ const ShareKakaotalk = (props) => {
         <RiKakaoTalkFill
           size="60"
           id="kakao-link-btn"
-          onClick={() => getKaKaotalkInfo()}
+          onClick={() => getKakaotalkInfo()}
         ></RiKakaoTalkFill>
       ) : (
-        <Button id="kakao-link-btn" onClick={() => getKaKaotalkInfo()}>
+        <Button id="kakao-link-btn" onClick={() => getKakaotalkInfo()}>
           <RiKakaoTalkFill size="60"></RiKakaoTalkFill>
         </Button>
       )}
